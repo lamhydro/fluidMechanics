@@ -1,6 +1,5 @@
 /MecanicaDeFluidos.pdf
-/references/*
-/lecs/lec01/*
+#/references/*
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
