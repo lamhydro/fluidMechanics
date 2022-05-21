@@ -80,6 +80,14 @@ Es comun encontrar por ejemplo que la presion de manometro tipica de una llanta 
 
 \subsection{Presi\'on en un punto}
 Por definicion, la presion en un punto en un fluido es la misma en todas las direcciones, por lo tanto la presion no puede considerarse como una cantidad vectorial y es entonces una cantidad scalar. Esto se puede demostrar si se hace un analisis de fuerzas sobre el elemento en equilibrio de la figura~\ref{ppoint} en donde la profundidad del elemento es $\Delta y = 1$. Aplicando la segunda ley de Newton y haciendo un analisis de fuerzas sobre las superficies del elemento:
+% Fig 3.5 Cengel
+\begin{figure}[h]
+\centering
+\includegraphics[width=10cm]{ppoint}
+\caption{Fuerzas actuantes sobre un elemento de fluido en equilibrio.}
+\label{ppoint}
+\end{figure}
+
 
 \begin{equation}
 \begin{split}
@@ -302,4 +310,94 @@ Si el fluido que fluye a lo largo de la tuberia es gas, $\rho_1 \ll \rho_2$ por 
 \end{itemize}
 
 \section{Estatica de fluidos}
+La \textbf{estatica de fluidos} trabaja con fluidos en \textbf{reposo} y es conocida como \textbf{hidroestatica} cuando el fluido es un liquido y \textbf{aeroestatica} cuando el fluido es un gas. En un fluido en reposo no se deforma porque no existen esfuerzos cortantes tangenciales entre capas. El only esfuerzo actuante sobre un fluido en reposo es el \textbf{esfuerzo normal} o la presion la cual varia con el peso del fluido que a su vez es funci\'on de la gravedad. La estatica de fluidos es importante para el dise\~no de objetos y estructuras flotantes o subermegidas como presas, submarinos y tanques de almacenamiento de agua.
+\subsection{Fuerza hidroest\'atica sobre superficies planas sumergidas}
+Una placa sumergida (e.g. compuerta de una presa, pared de un tanque) esta sujeta a una presion ejercida por el fluido sobre su superficie. En una superficie plana, las fuerzas hidroestaticas actuan paralelas y es importante determinar su magnitud y su punto de aplicacion (\textbf{centro de presi\'on}) sobre la superficie. En algunos casos, la superficie esta parcialmente suemergica y mientras que un lado esta en contacto con un fluido, en el otro esta en contacto con al atmosfera por lo tanto la $P_{atm}$ se anula y la presion resultante es la presion hidroestatica $P_{gage}=\rho g h$ como se muestra en la figura~\ref{hes1}.
+
+% Fig 3.27 Cengel
+\begin{figure}[h]
+\centering
+\includegraphics[width=10cm]{hes1}
+\caption{Fuerzas hidroestaticas sobre una superficie plana parcialmente sumergida.}
+\label{hes1}
+\end{figure}
+
+Un caso mas general es el ilustrado en la figura~\ref{hes2} en donde tenemos una placa irregular sumergida e inclinada un angulo $\theta$ con respecto a la horizontal. La presion absoluta ejercida sobre cualquier punto sobre la placa es:
+% Fig 3.28 Cengel
+\begin{figure}[h]
+\centering
+\includegraphics[width=10cm]{hes2}
+\caption{Fuerza hidroestatica sobre una placa inclinada y sumergida.}
+\label{hes2}
+\end{figure}
+
+$$
+P=P_0 + \rho g h = P_0 + \rho g y \sin \theta
+$$
+en donde $P_0$ es la presion arriba de el fluido (= $P_{atm}$ si el fluido esta abierto a la atmosfera), $y$ es la distancia a lo largo del mismo eje desde el origen $O$ y $h$ es la distancia vertical desde la superficie del agua hasta la placa en donde $h=y \sin \theta$. 
+
+La fuerza hidroestatica resultante $F_R$ que actua sobre la placa es:
+$$
+F_R = \int_A P dA = \int_A (P_0 + \rho g y \sin \theta) dA = P_0 A + \rho g \sin \theta \int_A y dA
+$$
+en donde $dA$ es el diferencial de area sobre la la placa. Como el \texttt{primer momento de area} $\int_A y dA$ se relaciona con la coordenada $y$ del \textbf{centroide} $y_C = \frac{1}{a} \int_A y dA$ de la placa, reemplazando en la ecuacion anterior:
+\begin{equation}
+F_R = (P_0 + \rho g y_C \sin \theta)A = (P_0 + \rho g h_C)A = P_C A = P_{avg} A
+\label{fr}
+\end{equation}
+en donde $P_C$ es la presion sobre el centroide de la placa la cual es equivalente a la presion promedio $P_{avg}$, y $h_C$ es la distance vertical desde la superficie hasta el centroide.
+
+Cuando $P_0 = P_{atm}$, esta puede ser ignorada en el calculo de $F_R$ ya que actua en ambas caras de la placa. Cuando esto no es asi, la fuerza adicional ejercida debido a $P_0$ se calcula adicionando $h_{equiv}=P_0 /\rho g$ a $h_C$, lo cual asume la presencia de una capa adicional de liquido en la superficie. 
+
+La linea de accion de $F_R$ no pasa por el centroide de la placa; esta pasa por el \textbf{centro de presion}. Para determinar la posicion del centro de presion, estimamos el momento de $F_R$ con respecto al eje $x$:
+$$
+y_p F_R = \int_A y P dA = \int_A y(P_0 \rho g y \sin \theta)dA = P_0 \int_A y dA + \rho g \sin \theta \int_A y^2 dA
+$$
+o
+\begin{equation}
+y_p F_R = P_0 y_C A + \rho g \sin \theta I_{xx,O}
+\label{ypfr}
+\end{equation}
+donde $y_p$ es la distancia al centro de presion desde el eje $x$, y $I_{xx,O} = \int_A y^2 dA$ es el \texttt{segundo momento de area o de inercia} con respecto al eje $x$. Por el teorema de \texttt{ejes parelelos} el $I_{xx,O}$ puede ser calculado con respecto al eje $x$ que pasa por por centroide como:
+\begin{equation}
+I_{xx,O} = I_{xx,C}+y^2_C A
+\label{ixx}
+\end{equation}
+donde $I_{xx,C}$ es el segundo momento de area con respecto al eje $x$ que pasa por el centroide y $y_C$ es la distancia entre los dos ejes paralelos. Reemplazando las ecuaciones~\ref{fr} y ~\ref{ixx} en la ecuacion~\ref{ypfr}:
+$$
+y_p (P_0 + \rho g y_C \sin \theta)A = P_0 y_C A + \rho g \sin \theta (I_{xx,C}+y^2_C A)
+$$
+despejando para $y_p$:
+\begin{flalign*}
+y_p  &= \frac{P_0 y_C A + \rho g \sin \theta (I_{xx,C}+y^2_C A)}{(P_0 + \rho g y_C \sin \theta)A} \\
+&= \frac{P_0 y_C A + \rho g \sin \theta I_{xx,C}+\rho g \sin \theta y^2_C A}{(P_0 + \rho g y_C \sin \theta)A} \\
+&= \frac{y_C A (P_0 +\rho g \sin \theta y_C) + \rho g \sin \theta I_{xx,C}}{(P_0 + \rho g y_C \sin \theta)A} \\
+&= y_C + \frac{\rho g \sin \theta I_{xx,C}}{(P_0 + \rho g y_C \sin \theta)A}
+\end{flalign*}
+
+\begin{equation}
+y_p = y_C + \frac{I_{xx,C}}{ \left[ y_C + \frac{P_0}{\rho g \sin \theta} \right]A }
+\label{yp}
+\end{equation}
+
+Cuando $P_0=P_{atm}$ y es ignorada, $y_p$ es:
+\begin{equation}
+y_p = y_C + \frac{I_{xx,C}}{y_C A} 
+\label{yp1}
+\end{equation}
+
+Por lo tanto la distancia vertical desde la superficie hasta el centro de presion es: $h_p = y_p \sin \theta$.
+
+Valores de $I_{xx,C}$ para diferentes areas comunes son mostrados en la figura~\ref{centro}. Para areas simetricas con respecto al eje $y$, el centro de presion esta debajo del centroide y sobre el eje $y$.
+% Fig 3.31 Cengel
+\begin{figure}[h]
+\centering
+\includegraphics[width=10cm]{centro}
+\caption{El centroide y el momento de inercia con respecto al centroide para figuras geometricas comunes.}
+\label{centro}
+\end{figure}
+
+
+\subsection{Fuerza hidroest\'atica sobre superficies curvas sumergidas}
+En superficies curvas sumergidas, la fuerza hidroestatica cambia de direccion dependiendo de la posicion sobre la superficie. Por esto es necesario estimar las componentes horizontal $F_H$ y vertical $F_V$ de $F_R$. 
 \end{document}
