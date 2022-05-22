@@ -1,4 +1,4 @@
-/MecanicaDeFluidos.pdf
+#/MecanicaDeFluidos.pdf
 #/references/*
 
 ## Core latex/pdflatex auxiliary files:
@@ -19,4 +19,5 @@
 *.dvi
 *.xdv
 
-
+# vim dom
+*.swp

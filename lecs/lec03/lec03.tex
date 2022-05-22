@@ -312,6 +312,7 @@ Si el fluido que fluye a lo largo de la tuberia es gas, $\rho_1 \ll \rho_2$ por 
 \section{Estatica de fluidos}
 La \textbf{estatica de fluidos} trabaja con fluidos en \textbf{reposo} y es conocida como \textbf{hidroestatica} cuando el fluido es un liquido y \textbf{aeroestatica} cuando el fluido es un gas. En un fluido en reposo no se deforma porque no existen esfuerzos cortantes tangenciales entre capas. El only esfuerzo actuante sobre un fluido en reposo es el \textbf{esfuerzo normal} o la presion la cual varia con el peso del fluido que a su vez es funci\'on de la gravedad. La estatica de fluidos es importante para el dise\~no de objetos y estructuras flotantes o subermegidas como presas, submarinos y tanques de almacenamiento de agua.
 \subsection{Fuerza hidroest\'atica sobre superficies planas sumergidas}
+\label{hipl}
 Una placa sumergida (e.g. compuerta de una presa, pared de un tanque) esta sujeta a una presion ejercida por el fluido sobre su superficie. En una superficie plana, las fuerzas hidroestaticas actuan paralelas y es importante determinar su magnitud y su punto de aplicacion (\textbf{centro de presi\'on}) sobre la superficie. En algunos casos, la superficie esta parcialmente suemergica y mientras que un lado esta en contacto con un fluido, en el otro esta en contacto con al atmosfera por lo tanto la $P_{atm}$ se anula y la presion resultante es la presion hidroestatica $P_{gage}=\rho g h$ como se muestra en la figura~\ref{hes1}.
 
 % Fig 3.27 Cengel
@@ -399,5 +400,47 @@ Valores de $I_{xx,C}$ para diferentes areas comunes son mostrados en la figura~\
 
 
 \subsection{Fuerza hidroest\'atica sobre superficies curvas sumergidas}
-En superficies curvas sumergidas, la fuerza hidroestatica cambia de direccion dependiendo de la posicion sobre la superficie. Por esto es necesario estimar las componentes horizontal $F_H$ y vertical $F_V$ de $F_R$. 
+\label{hicu}
+En superficies curvas sumergidas, la fuerza hidroestatica cambia de direccion dependiendo de la posicion sobre la superficie. Para facilitar el calculo, es necesario estimar las componentes horizontal $F_H$ y vertical $F_V$ de $F_R$. Si consideramos la superficie curva de la figura~\ref{cur1}, el calculo de $F_H$ y $F_V$ se hace calculando las fuerzas actuantes sobre la proyeccion horizontal y vertical de la superficie curva. Tenemos entonces que:
+
+% Fig 3.36 Cengel
+\begin{figure}[h]
+\centering
+\includegraphics[width=10cm]{cur1}
+\caption{Determinaci\'on de la fuerza hidroestatica actuante sobre una superficie curva sumergida.}
+\label{cur1}
+\end{figure}
+
+$$
+F_H=F_x
+$$
+$$
+F_V = F_y \pm W
+$$
+donde $F_x$ se calcula como la resultante de la fuerza hidroestatica sobre una superficie plana vertical (ver seccion~\ref{hipl}), $F_y$ es la fuerza en $y$ ejercida sobre el fluido (e.g. fluido superior y aire) y $W = \rho g V$ es el peso del volumen ($V$) de fluido. Note que $F_y$ y $W$ se suman si actuan en la misma direccion y se restan si van en direcciones opuestas. De lo anterior:
+$$
+F_R=\sqrt{F^2_H + F^2_V}
+$$
+y el angulo que hace $F_R$ con la horizontal es $\alpha = \arctan \frac{F_V}{F_H}$.
+
+
+\subsection{Fuerzas hidroestaticas en diferentes fluidos}
+Las ecuaciones vistas en las secciones~\ref{hipl} y ~\ref{hicu} son validas para fluidos de densidad uniforme. Si el fluido esta conformado por capas de fluidos de diferentes densidades (ver figura~\ref{mden}) la distribucion lineal de presiones cambia en cada capa. Sin embargo las ecuaciones vistas anteriormente pueden ser aplicadas a cada capa $i$ y las $F_{R,i}$ pueden ser adicionadas para calcular la $F_R$:
+% Fig 3.39 Cengel
+\begin{figure}[h]
+\centering
+\includegraphics[width=10cm]{mden}
+\caption{Fuerzas hidroestaticas sobre placa sumergida en dos fluidos.}
+\label{mden}
+\end{figure}
+
+
+$$
+F_R = \sum F_{R,i} = \sum P_{C,i}A_i
+$$
+donde $P_{C,i} =  P_0 + \rho_i h h_{C,i}$ es la presion en el centroide de la porcion de la superficie en el fluido $i$, y $A_i$ es el area de la superficie en ese fluido. El centro de presion de $F_R$ puede ser encontrado calculando la suma de los momentos de cada fuerza $F_{R,i}$ con respecto a un punto determinado (e.g. la superficie de agua.).
+
+\section{Flotaci\'on y estabilidad}
+
+
 \end{document}
