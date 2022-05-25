@@ -441,6 +441,81 @@ $$
 donde $P_{C,i} =  P_0 + \rho_i h h_{C,i}$ es la presion en el centroide de la porcion de la superficie en el fluido $i$, y $A_i$ es el area de la superficie en ese fluido. El centro de presion de $F_R$ puede ser encontrado calculando la suma de los momentos de cada fuerza $F_{R,i}$ con respecto a un punto determinado (e.g. la superficie de agua.).
 
 \section{Flotaci\'on y estabilidad}
+Es comun sentir como un cuerpo determinado pesa menos cuando este esta en un fluido; dicha sensacion se explica debido a que el fluido ejerce una fuerza vertical hacia arriba que tiende a levantar el objeto la cual es denominada \textbf{fuerza de flotaci\'on}, $F_B$. La fuerza de flotaci\'on es causada por el incremento de presion con la profundidad dentro del fluido. Para su analisis, consideremos la placa de la figura~\ref{flota} de espesor $h$ y area $A$ sumergida en un liquido de densidad $\rho_f$ y que es paralela a la superficie libre. El balance de fuerzas sobre la placa, con base en presiones manometricas es:
+% Fig 3.41 Cengel
+\begin{figure}[h]
+\centering
+\includegraphics[width=10cm]{flota}
+\caption{Fuerzas actuantes sobre una placa sumergida paralela a la superficie.}
+\label{flota}
+\end{figure}
+
+\begin{equation}
+F_B=F_{bottom} - F_{top} = \rho_f g (s+h)A - \rho_f gs A = \rho_f ghA = \rho_f g V
+\label{FB}
+\end{equation}
+donde $V=hA$ es el volumen de la placa. Teniendo en cuenta que $\rho_f g V$ es el peso del liquido cuyo volumen es igual al volumen de la placa, tenemos que \emph{la fuerza de flotaci\'on actuante sobre una placa es igual al peso del liquido desplazado por la placa}. Note que si el fluido es de densidad constante, la fuerza de flotacion es independiente de la profundidad $h$ y  de la densidad de la placa. En terminos generales y para cualquier objeto se afirma que \emph{la fuerza de flotaci\'on actuante sobre un cuerpo de densidad uniforme inmerso en un fluido es igual al peso del fluido desplazado por el cuerpo, y que actual vertical a travez del centroide del volumen desplazado}, esto es conocido como el \textbf{principio de Arquimides} gracias al matematico Griego Arquimides. 
+
+Para objetos flotantes, el peso del cuerpo debe ser igual a la fuerza de flotacion, la cual es el peso del fluido cuyo volumen es igual a el volumen de la porci\'on sumergida del cuerpo flotante. Esto es:
+\begin{equation}
+F_B = W \rightarrow \rho_f g V_{sub} = \rho_{avg,body}gV_{total} \rightarrow \frac{V_{sub}}{V_{total}} = \frac{\rho_{avg,body}}{\rho_f}
+\label{FB2}
+\end{equation}
+De la ecuaci\'on~\ref{FB2} tenemos que la fraccion de volumen del objeto flotante es igual a la relaci\'on entre la densidad promedio del cuerpo y la densidad del fluido. Analizando la ecuacion~\ref{FB2} (ver figura~\ref{flota2}), un objeto inmerso en un fluido: 1) permanece en reposo dentro del fluido cuando $\rho = \rho_f$, 2) se hunde y cae hasta el fondo dentro de el fluido cuando $\rho > \rho_f$ y 3) flota cuando $\rho < \rho_f$.
+
+% Fig 3.43 Cengel
+\begin{figure}[h]
+\centering
+\includegraphics[width=10cm]{flota2}
+\caption{ Diferentes estados de un cuerpo inmerso en un fluido dependiendo de su densidad ($\rho$) y de la del fluido ($\rho_f$).}
+\label{flota2}
+\end{figure}
+
+Como es sabido, $F_B$ es proporcional a $\rho_f$. En el caso de los gases, la densidad generalmente es mucho menor que la densidad de un liquido. Sin embargo, las fuerzas de flotacion son notorias en el ascenso de aire caliente en ambientes frios, la circulacion de aire en la atmosfera y el ascenso de globos y de bombas con helio. 
+
+\subsection{Estabilidad de cuerpos sumergidos y flotantes}
+Una importante aplicacion del concepto de flotacion es el analisis de la estabilidad de un cuerpo flotante o sumergido, lo cual es fundamental en el disen\~o de embarcaciones y submarinos. Existen tres casos que describen la estabilidad de un cuerpo: 1) Un cuerpo permanece \textbf{estable} si cualquier peque\~na perturbacion genera un movimiento que es contrarestado por una fuerza que hace que el cuerpo retorne a su posicion inicial, 2) un cuerpo es \textbf{neutralmente estable} si despues de ser perturbado cambia su posicion inicial, y 3) un cuerpo es \textbf{inestable} si al ser perturbado este no retorna a su posicion inicial y continua en movimiento. Estos tres estados son aplicables a objetos flotantes o sumergidos. Por ejemplo, un cuerpo sumergido o flotante en equilibrio estatico cuyo peso es balanceado por la fuerza de flotacion permanece estable en la \textbf{direccion vertical}.
+
+La \textbf{estabilidad de rotacion} de un cuerpo cuerpo sumergido depende de la localizacion relativa de el \textbf{centro de gravedad} $G$ de el cuerpo y el centro de flotacion $B$, el cual es el centroide del volumen desplazado. Un cuerpo sumergido permanece estable si su fondo es mas pesado lo que hace que $G$ este por debajo de $B$. Esta es la razon por la cual en el diseno de submarinos, los motores estan en la parte mas baja con el fin de localizar el mayor peso posible en las partes bajas del submarino. Lo mismo occurre con los globos, el cual es un cuerpo inmerso en aire, cuyo mayor peso es la canasta que transporta a las personas esta en la parte baja mientras el aire caliente y liviano se hubica en la parte alta. Si $G$ esta por encima de $B$, el cuerpo sumergido es inestable y cualquier perfturbacion hace que el cuerpo se voltee. En el caso en el que $G$ y $B$ coinciden, el cuerpo sumergido es nuetralmente estable, lo cual es el caso de cuerpos cuya densidad es uniforme (ver figura~\ref{rota}).
+
+% Fig 3.49 Cengel
+\begin{figure}[h]
+\centering
+\includegraphics[width=10cm]{rota}
+\caption{Estabilidad de un cuerpo sumergido.}
+\label{rota}
+\end{figure}
+
+Si en un cuerpo $G$ no esta verticalmente alineado con $B$ no es apropiado hablar de estabilidad ya que el cuerpo no esta en un estado de equilibrio y tratara de rotar o moverse por si solo para alcanzarsu estado estable (ver figura~\ref{rota2}). El momemento restaurador que actua en contra de las manecillas del reloj, tratara de rotar el cuerpo en la misma direccion con el fin de alinear $G$ y $B$ verticalmente.
+% Fig 3.50 Cengel
+\begin{figure}[h]
+\centering
+\includegraphics[width=10cm]{rota2}
+\caption{Cuerpo sumergido en desequilibrio en donde $G$ no esta alineado verticalmente con $B$.}
+\label{rota2}
+\end{figure}
+
+
+
+La estabilidad de rotaci\'on es similar para cuerpos flotantes. Sin embargo, a diferencia de un cuerpo sumergido, un cuerpo flotante puede permanecer estable incluso cuando $G$ esta arriba de $B$ (ver figura~\ref{rota3}). Esto se logra gracias a que $B$ se desplaza hacia $B'$ generando un momento restaurador entre las dos fuerzas para retornar el objeto a su posicion  original. 
+
+Una medida de la estabilidad de un cuerpo flotante es la \textbf{altura metacentrica} $GM$, la cual es la distancia entre $G$ y el \emph{metacentro} $M$ (punto de interseccion entre la linea de accion de las fuerza flotante antes y despues de la rotacion). Con base en la posicion de $M$, un cuerpo flotante es estable si $M$ esta arriba de $G$ por lo que $GM$ es positiva y es inestable si $M$ esta abajo de $G$ por lo que $GM$ es negativa. Si es inestable, el peso y la fuerza de flotacion actuando sobre el cuerpo inclinado genera un momento de volcamiento en lugar de un momento restaurador. Entre mas grande es $GM$, mas estable es el cuerpo flotante. Note que un bote puede inclinarse hasta cierto angulo maximo sin volcarse, sin embargo, si dicho angulo es excedido el bote se volteara y se hundira.  
+% Fig 3.51 Cengel
+\begin{figure}[h]
+\centering
+\includegraphics[width=10cm]{rota3}
+\caption{Estabilidad de un cuerpo flotante.}
+\label{rota3}
+\end{figure}
+
+%El mismo principio para calcular fuerzas hidroestaticas sobre superficies puede ser aplicado para calcular fuerzas netas de presion en cuerpos completamente sumergidos o cuerpos en flotaci\'on. Las dos leyes de flotaci\'on descubiertas por \texttt{Arquimides} son:
+%\begin{enumerate}
+%\item Un cuerpo inmerso en un fluido experimenta una fuerza vertical flotante igual al peso del fluido desplazado por el cuerpo.
+%\item Un cuerpo flotante desplaza su propio peso en el fluido en el cual este flota.
+%\end{enumerate}
+
+\section{Fluidos en moviento de cuerpo rigido}
+
 
 
 \end{document}
