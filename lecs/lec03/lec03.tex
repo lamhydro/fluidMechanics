@@ -515,6 +515,214 @@ Una medida de la estabilidad de un cuerpo flotante es la \textbf{altura metacent
 %\end{enumerate}
 
 \section{Fluidos en moviento de cuerpo rigido}
+En esta seccion se analiza la variacion de presiones en un fluido que se mueve como un cuerpo solido con o sin aceleracion y sin la presencia de esfuerzos cortantes. Por ejemplo un carrotanque que transporta liquido en su interior, al acelerar y alcanzar una velocidad, hace que la superficie libre de el fluido se incline en la parte trasera haciendo que el volumen se mueva como un cuerpo rigido. De manera similar, cuando un cilindro que contiene un fluido rota a una velocidad determinada, su superficie se transforma haciendo que todo el fluido se comporte como un cuerpo rigido.
+
+Si analizamos un elemento diferencial de fluido cuyas dimensiones son $dx$, $dy$ y $dz$ (ver figura~\ref{body}) el cual se comporta como un cuerpo rigido, la fuerza neta actuante sobre el elemento segun la \emph{segunda ley de Newton} se expresa como:
+% Fig 3.53 Cengel
+\begin{figure}[h]
+\centering
+\includegraphics[width=10cm]{body}
+\caption{Fuerzas actuantes sobre un elemento diferencial de fluido en direcci\'on vertical.} 
+\label{body}
+\end{figure}
+
+
+\begin{equation}
+\delta \vec{F} = \delta m \cdot \vec{a}
+\label{bd1}
+\end{equation}
+
+donde $\delta m = \rho\ dV = \rho\ dx\ dy\ dz$ es la masa del elemento de fluido y $\vec{a}$ es la aceleracion del elemento. Si hacemos un balance de fuerzas sobre el elemento, las fuerzas actuantes sobre este son las fuerzas hidroestaticas sobre las caras del elemento ejercidas por el fluido alrededor las cuales tratan de comprimir el elemento de fluido,  y el peso del elemento en direccion $z$ negativo. El balance de las fuerzas de presion en la direccion $z$ es:
+$$
+\delta F_{S,z} = \left( P - \frac{\partial P}{\partial z} \frac{dz}{2} \right) dx\ dy - \left( P + \frac{\partial P}{\partial z} \frac{dz}{2} \right) dx\ dy = -\frac{\partial P}{\partial z} dx\ dy\ dz
+$$
+
+De manera similar, el balance en la direccion $x$ y $y$ es:
+$$
+\delta F_{S,x} =  -\frac{\partial P}{\partial x} dx\ dy\ dz \quad \quad  \delta F_{S,x} =  -\frac{\partial P}{\partial x} dx\ dy\ dz
+$$
+
+La fuerza de presion actuando sobre el elemento en forma vectorial, es expresada como:
+$$
+\delta \vec{F}_S = \delta F_{S,x}\vec{i} + \delta F_{S,y} \vec{j} + \delta F_{S,z}\vec{k} = -\left( \frac{\partial P}{\partial x}\vec{i} + \frac{\partial P}{\partial y}\vec{j} + \frac{\partial P}{\partial z}\vec{k} \right) dx\ dy\ dz = -\vec{\nabla}P dx\ dy\ dz
+$$
+donde $\vec{i}$, $\vec{j}$ y $\vec{k}$ son los vectores unitarios en $x$, $y$ y $z$ respectivamente, y $\vec{\nabla}= \frac{\partial P}{\partial x}\vec{i} + \frac{\partial P}{\partial y}\vec{j} + \frac{\partial P}{\partial z}\vec{k}$ es el gradiente de presion. Note que $\vec{\nabla}$ es un operador vectorial que actua sobre una funcion scalar como lo es $P$.
+
+La otra fuerza actuante sobre el elemento de fluido es el peso, la cual se expresa como:
+$$
+\delta \vec{F}_{B,z} = -g \delta m \vec{k} = -\rho g dx\ dy\ dz \vec{k}
+$$
+La fuerza total actuante sobre el elemento de fluido es:
+\begin{equation}
+\delta \vec{F} = \delta \vec{F}_S + \delta \vec{F}_B = -\left( \vec{\nabla}P + \rho g \vec{k}\right) dx\ dy\ dz
+\label{fto}
+\end{equation}
+
+De acuerdo con la segunda ley de Newton, $\delta \vec{F} = \delta m \cdot \vec{a} = \rho\ dx\ dy\ dz$ y substituyendo en la ecuacion anterior tenemos que la ecuacion general de moviento de un fluido que actua como un cuerpo rigido (sin esfuerzos cortantes) es:
+\begin{equation}
+\vec{\nabla}P + \rho g \vec{k} = -\rho \vec{a}
+\label{fto1}
+\end{equation}
+Descomponiendo la ecuaci\'on~\ref{fto1}  vectorial, tenemos:
+\begin{equation}
+\frac{\partial P}{\partial x} = -\rho a_x \quad \frac{\partial P}{\partial y} = -\rho a_y \quad \frac{\partial P}{\partial z} = -\rho (g+ a_z )
+\label{fto2}
+\end{equation}
+donde $a_x$, $a_y$ y $a_z$ son las componentes del vector $\vec{a}$ en las direcciones $x$, $y$ y $z$ respectivamente.
+
+Existen dos casos especiales:
+\begin{enumerate}
+\item[\textbf{Caso 1:}] \textbf{Fluido en reposo o en moviento a velocidad constante:}
+En un fluido en reposo o en moviento con velocidad constante, $a_x=0$, $a_y=0$ y $a_z=0$, por lo tanto la equacion~\ref{fto2} se reduce a:
+\begin{equation}
+\frac{d P}{d z} = -\rho g
+\label{fto3}
+\end{equation}
+La ecuacion~\ref{fto3} confirma que un fluido en reposo la presion permanece constante en cualquier direccion horizontal y solo varia en la direcci\'on vertical.
+
+\item[\textbf{Caso 2:}] \textbf{Caida libre de un elemento fluido}: Para un cuerpo en caida libre cuya aceleracion es $a_x =0$, $a_y =0$ y $a_z = -g$ y en donde la resistencia del aire despreciable, la ecuaci\'on~\ref{fto2} se convierte en:
+\begin{equation}
+\frac{\partial P}{\partial x} =\frac{\partial P}{\partial y} =\frac{\partial P}{\partial z} = 0 \rightarrow P=\text{constant} \rightarrow a_z=-g
+\label{fto4}
+\end{equation}
+
+Si el cuerpo es acelerado hacia arriba (e.g. un elemento de fluido en un ascensor) hasta alcanzar $a_z = g$, el gradiente de presion en direccion $z$, de acuerdo con la ecuaci\'on~\ref{fto2}, es $\partial P \ \partial z = -2\rho ga$.
+
+\end{enumerate}
+
+\subsection{Aceleraci\'on en linea recta}
+Consideremos un container parcialmente lleno moviendose en linea recta con una aceleracion constante (e.g. carrotanque con combustible en moviemto). De acuerdo con la figura~\ref{rigi} y con la ecuacion~\ref{fto2} las ecuaciones de  moviento se reducen a:
+% Fig 3.57 Cengel
+\begin{figure}[h]
+\centering
+\includegraphics[width=10cm]{rigi}
+\caption{Elemento de fluido acelerado linealmente.}
+\label{rigi}
+\end{figure}
+
+
+$$
+\frac{\partial P}{\partial x}=-\rho a_x \quad \frac{\partial P}{\partial y} = 0 \quad \frac{\partial P}{\partial z}=-\rho(g+ a_z)
+$$
+en donde $P$ es independiente de $y$ por lo cual $P=P(x,z)$. De acuerdo con la definicion de diferencial total, $dP = (\partial P / \partial x)dx + (\partial P / \partial z)dz$, la ecuacion anterior se convierte en:
+\begin{equation}
+dP = -\rho a_x dx - \rho(g + a_z)dz
+\label{ln00}
+\end{equation}
+
+Para determinar la diferencia de presion entre los puntos 1 y 2 (ver figura~\ref{rigi}), integramos la ecuaci\'on~\ref{ln00} para $x$ y $z$:
+
+\begin{equation}
+P_2 - P_1 = -\rho a_x (x_2 - x_1 ) - \rho(g+ a_z )(z_2 - z_1 )
+\label{ln0}
+\end{equation}
+
+Si tomamos como origen el punto $x=0$ y $z=0$ en donde la presion $P=P_0$, la variacion de presion en cualquier punto del fluido es:
+\begin{equation}
+P = P_0 - \rho a_x x - \rho(g + a_z) z
+\label{ln1}
+\end{equation}
+
+Si deseamos calcular el cambio de elevacion de la superficie libre del fluido, el cambio de nivel del punto 2 con respecto a 1 de acuerdo a la ecuacion~\ref{ln0} y asumiendo que $P_1 = P_2$ es:
+\begin{equation}
+\Delta z_s = z_{s2} - z_{s1} = -\frac{a_x}{g+a_z} (x_2 - x_1)
+\label{ln2}
+\end{equation}
+donde $z_s$ indicate la localizacion sobre la superficie. 
+
+De manera similar a la ecuaci\'on~\ref{ln2}, las superficies con presion constante conocidas como \textbf{isobaras} pueden ser descritas como:
+\begin{equation}
+\frac{d z_{isobar}}{dx} = -\frac{a_x}{g+a_z} = \text{constante}
+\label{ln3}
+\end{equation}
+
+De acuerdo con lo anterior, las isobaras son superficies paralelas (ver figura~\ref{rigi}) cuya pendiente es $m = \frac{dz_{isobar}}{dx} = -\frac{a_x}{g+ a_z } = \tan \theta$.
+
+\subsection{Rotaci\'on de un container cilindrico}
+Si hacemos rotar un vaso lleno de agua alrededor de su eje vertical, el agua tiende a apartarse desde el centro hacia las paredes formando una superficie libre concava; todo esto gracias a la \emph{fuerza centrifuga} (o a la \emph{aceleracion centripeta}). Si analisamos el cilindro de la figura~\ref{cili}, el cual rota a velocidad angular $\omega$,  cada particula del fluido se movera a la misma velocidad y todo el fluido se movera como un cuerpo rigido que no se deforma, una vez se alcance una condicion permanente. Para analizar este caso, es conveniente el analisis en coordenadas polares ($r$, $\theta$, $z$), en donde $z$ represente el eje de rotacion del fluido. Por definicion, la aceleracion centripeta es $r \omega^2$ y positiva hacia el centro; note que la aceleracion no depende de $\theta$ ya que es simetrica con respecto a $z$. Aplicando la ecuaci\'on~\ref{fto1}:
+% Fig 3.59 Cengel
+\begin{figure}[h]
+\centering
+\includegraphics[width=10cm]{cili}
+\caption{Rotacion de un fluido con respecto a su eje vertical.}
+\label{cili}
+\end{figure}
+
+
+
+
+\begin{equation}
+\frac{\partial P}{\partial r} = \rho r \omega^2 \quad \frac{\partial P}{\partial \theta} = 0 \quad \frac{\partial P}{\partial z} = -\rho g
+\label{rot1}
+\end{equation}
+
+De acuerdo con la definicion de diferencial total, $dP = (\partial P / \partial r)dr + (\partial P / \partial z)dz$, la ecuaci\'on~\ref{rot1} se convierte en:
+\begin{equation}
+dP = \rho r \omega^2 dr - \rho g dz
+\label{rot2}
+\end{equation}
+Para superficies con presion constante ($dP = 0$), la distancia vertical $z$ se convierte en una funcion de $r$ como:
+$$
+\frac{d z_{isobar}}{dr} = \frac{r \omega^2}{g}
+$$
+integrando la ecuacion anterior:
+\begin{equation}
+z_{isobar} = \frac{\omega^2}{2g} r^2 + C_1
+\label{rot3}
+\end{equation}
+en donde la ecuaci\'on~\ref{rot3} es la ecuacion de la parabola por lo que las superficies de presion constante forman un paraboloide de revolucion. La ecuaci\'on~\ref{rot3} representa una familia de curvas. Por lo tanto, para la superficie libre, cuya altura es conocida e igual a $h_c$, $C_1=h_c$ cuando $r=0$ y la ecuaci\'on~\ref{rot3} para la superficie libre se convierte en:
+\begin{equation}
+z_s = \frac{\omega^2}{2g} r^2 + h_c
+\label{rot4}
+\end{equation}
+en donde $z_s$ es la distancia desde el fondo hasta la superficie. 
+
+Teniendo en cuenta que el volumen de un anillo es $dV = 2\pi r z_s dr$, el volumen del parabolodide fomado por la superficie libre es:
+\begin{equation}
+V = \int_{r=0}^R 2\pi z_s r dr = 2\pi \int_{r=0}^R \left( \frac{\omega^2}{2g} r^2 + h_c \right) r dr = \pi R^2 \left( \frac{\omega^2}{2g} R^2 + h_c \right)
+\label{rot5}
+\end{equation}
+
+De acuerdo con el principio de conservacion de la masa, el volumen del cilindro es
+
+\begin{equation}
+V=\pi R^2 h_0
+\label{rot6}
+\end{equation}
+en donde $h_0$ es la altura del fluido en el container antes de rotar. Igualando las ecuaciones~\ref{rot5} y ~\ref{rot5}, $h_c$ se convierte en:
+\begin{equation}
+h_c = h_0 - \frac{\omega^2 R^2}{4g}
+\label{rot7}
+\end{equation}
+
+reemplazando en la ecuaci\'on~\ref{rot4}, la altura de la superficie libre seria:
+\begin{equation}
+z_s = h_0 - \frac{\omega^2}{4g} ( R^2 -2r^2 )
+\label{rot8}
+\end{equation}
+La diferencia de altura entre el centro y el borde del contenedor se obtiene evaluando la ecuaci\'on~\ref{rot8} cuando $r=0$ y $r=R$:
+\begin{equation}
+\Delta z_{s,max} = z_s (R)- z_s (0) = \frac{\omega^2}{2g} R^2
+\label{rot9}
+\end{equation}
+
+Por otro lado, si la densidad $\rho$ es constante, la diferencia de presion entre dos puntos 1 y 2 se determina integrando la ecuaci\'on~\ref{rot2}, lo cual queda:
+\begin{equation}
+P_2 - P_1 = \frac{\rho \omega^2}{2}(r_2^2 - r_1^2 ) - \rho g (z_2 - z_1)
+\label{rot10}
+\end{equation}
+Si tomamos como punto 1 $r=0$ y $z=0$ donde la presi\'on es igual $P_0$, la presion en cualquier punto (e.g. $P_2$) es:
+\begin{equation}
+P = P_0 + \frac{\rho \omega^2}{2} r^2 - \rho g z 
+\label{rot11}
+\end{equation}
+
+Segun la ecuaci\'on~\ref{rot11}, para un radio conocido, $P$ varia hidroestaticamente en la direcci\'on vertical como un fluido en reposo. Por otro lado, para una distancia $z$ conocida, $P$ cambia con el cuadrado de $r$ e incrementa desde el centro hacia los bordes. La diferencia de presion entre el centro y el borde del contenedor es:
+$$
+\Delta P = \frac{\rho \omega^2}{2} R^2 
+$$
+
+
 
 
 
