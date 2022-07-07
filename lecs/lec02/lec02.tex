@@ -47,36 +47,36 @@ Aquellas propiedades extensivas dadas en unidades de masa son llamadas \textbf{p
 
 Como ya lo sabemos, un fluido esta compuesto por moleculas las cuales pueden estar muy separadas, particularmente los gases. Sin embargo, para el estudio que nos concierne aqui, esa naturaleza atomica de los gases es irrelevante por lo que un fluido es considerado como un medio continuo (sin \"huecos\") y con una homogenea distribucion de la materia, a esto se le denomina el \textbf{continuo}. Esto implica que las propiedades pueden ser analizadas en un punto del espacio y que dichas propiedades varian en el espacio continuamente. 
 
-\section{Propiedades de los campos de velocidad}
-\subsection{Descripci\'on Euleriana y Lagrangiana}
-Existen dos aproximaciones para analisar problemas en mec\'anica. La primera se centra en el analisis de los campos de flujo y es conocido como el metodo \textbf{euleriano}.  En el metodo euleriano, se calcula la presi\'on del campo de flujo $p(x,y,z,t)$  (e.g en un punto del espacio $x,y,z$ o section) mas no los cambios de presion que experimentar\'ia una part\'icula moviendose en el flujo. Aqui, la posicion del sistema de coordenadas es constante para un intervalo de tiempo (ver Figura~\ref{eulan}).
-La segunda aproximaci\'on se centra en seguir particulas individualmente moviendose a traves del flujo, esto es conocido como el metodo \textbf{lagrangiano}. En este, el sistema de coordenadas se mueve con el flujo. El metodo lagrangiano es mas apropiado para el analisis de solidos, mientras que el metodo euleriano esampliamente usado en mecanica de fluidos. 
-En mediciones en fluidos, un sensor de presion introducido en un canal de laborario determina la presion del flujo en un punto ($x,y,z$) y en un instante ($t$) determinado. Dicha medicion es acorde con el metodo euleriano. De acuerdo con el metodo lagrangiano,  el mismo sensor arrojado al flujo y moviendose a la misma velocidad permitiria medir la presion de una particula que se mueve con el flujo.
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=8cm]{MaterialDerivative}
-\caption{Sistema euleriano y lagrangiano (http://www.flowillustrator.com/fluid-dynamics/basics/lagrangian-eulerian-viewpoints.php)}
-\label{eulan}
-\end{figure}
-
-\subsection{El campo de velocidad}
-La   propiedad mas conocida de un flujo es el campo de velocidad $\mathbf{V}(x,y,z,t)$, de la cual se derivan otras propiedades. La velocidad es un vector en funcion de la posicion y del tiempo y por lo tanto tiene tres componentes escalares $u$, $v$ y $w$:
-$$
-\mathbf{V}(x,y,z)=\mathbf{i}u(x,y,z,t) + \mathbf{j}v(x,y,z,t) + \mathbf{k}w(x,y,z,t)
-$$
-
-\subsection{El campo de aceleracion}
-El vector de aceleracion, $\mathbf{a}=\frac{d\mathbf{V}}{dt}$ es importante en flujos ssometidos a algun tipo de fuerza segun la segunda ley de Newton. El campo de aceleraci\'on de un fluido con respecto a un marco de referencia Euleriano, se define como:
-$$
-\mathbf{a}=\frac{d\mathbf{V}}{dt}
-$$
-
-Si tenemos una  $y=f(u)$ donde $u=g(x)$, $y$ es una funcion compuesta $y=f(g(x))$ y derivable en $x$. De acuerdo con la \textbf{regla de la cadena}, la $\frac{dy}{dx}=\frac{dy}{du} \frac{du}{dx}$. Aplicando dicha regla a la ecuacion anterior tenemos: 
-
-$$
-\mathbf{a}=\frac{\partial\mathbf{V}}{dt} + u\frac{\partial\mathbf{V}}{dx} + v\frac{\partial\mathbf{V}}{dy} + w\frac{\partial\mathbf{V}}{dz}
-$$
+%\section{Propiedades de los campos de velocidad}
+%\subsection{Descripci\'on Euleriana y Lagrangiana}
+%Existen dos aproximaciones para analisar problemas en mec\'anica. La primera se centra en el analisis de los campos de flujo y es conocido como el metodo \textbf{euleriano}.  En el metodo euleriano, se calcula la presi\'on del campo de flujo $p(x,y,z,t)$  (e.g en un punto del espacio $x,y,z$ o section) mas no los cambios de presion que experimentar\'ia una part\'icula moviendose en el flujo. Aqui, la posicion del sistema de coordenadas es constante para un intervalo de tiempo (ver Figura~\ref{eulan}).
+%La segunda aproximaci\'on se centra en seguir particulas individualmente moviendose a traves del flujo, esto es conocido como el metodo \textbf{lagrangiano}. En este, el sistema de coordenadas se mueve con el flujo. El metodo lagrangiano es mas apropiado para el analisis de solidos, mientras que el metodo euleriano esampliamente usado en mecanica de fluidos. 
+%En mediciones en fluidos, un sensor de presion introducido en un canal de laborario determina la presion del flujo en un punto ($x,y,z$) y en un instante ($t$) determinado. Dicha medicion es acorde con el metodo euleriano. De acuerdo con el metodo lagrangiano,  el mismo sensor arrojado al flujo y moviendose a la misma velocidad permitiria medir la presion de una particula que se mueve con el flujo.
+%
+%\begin{figure}[h]
+%\centering
+%\includegraphics[width=8cm]{MaterialDerivative}
+%\caption{Sistema euleriano y lagrangiano (http://www.flowillustrator.com/fluid-dynamics/basics/lagrangian-eulerian-viewpoints.php)}
+%\label{eulan}
+%\end{figure}
+%
+%\subsection{El campo de velocidad}
+%La   propiedad mas conocida de un flujo es el campo de velocidad $\mathbf{V}(x,y,z,t)$, de la cual se derivan otras propiedades. La velocidad es un vector en funcion de la posicion y del tiempo y por lo tanto tiene tres componentes escalares $u$, $v$ y $w$:
+%$$
+%\mathbf{V}(x,y,z)=\mathbf{i}u(x,y,z,t) + \mathbf{j}v(x,y,z,t) + \mathbf{k}w(x,y,z,t)
+%$$
+%
+%\subsection{El campo de aceleracion}
+%El vector de aceleracion, $\mathbf{a}=\frac{d\mathbf{V}}{dt}$ es importante en flujos ssometidos a algun tipo de fuerza segun la segunda ley de Newton. El campo de aceleraci\'on de un fluido con respecto a un marco de referencia Euleriano, se define como:
+%$$
+%\mathbf{a}=\frac{d\mathbf{V}}{dt}
+%$$
+%
+%Si tenemos una  $y=f(u)$ donde $u=g(x)$, $y$ es una funcion compuesta $y=f(g(x))$ y derivable en $x$. De acuerdo con la \textbf{regla de la cadena}, la $\frac{dy}{dx}=\frac{dy}{du} \frac{du}{dx}$. Aplicando dicha regla a la ecuacion anterior tenemos: 
+%
+%$$
+%\mathbf{a}=\frac{\partial\mathbf{V}}{dt} + u\frac{\partial\mathbf{V}}{dx} + v\frac{\partial\mathbf{V}}{dy} + w\frac{\partial\mathbf{V}}{dz}
+%$$
 
 \section{Propiedades termodinamicas de un fluido}
 La $\mathbf{V}$ velocidad es la propiedad mas importante de los fluidos, la cual interactua con las propiedades  termodinamicas. Las propiedades mas importantes son:
