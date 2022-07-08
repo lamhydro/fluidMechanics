@@ -154,15 +154,32 @@ donde $x_{start}$ es la posicion inicial de la particula trazadora en el tiempo 
 \emph{Particle image velocimetry (PIV)} es una tecnica para medir la velocidad de un campo de flujo. PIV usa peque\~nas particulas suspendidas en el flujo como trazadores las cuales son iluminadas con luz laser para determinar la posicion y direccion de cada una de ellas en un instante de tiempo.
 
 \subsection{Lineas de trazos}
-Si insertamos un pequeno tubo dentro de un fluido e introducimos un  trazador continuo dentro del fluido, la curva que forma las diferentes particulas trazadoras liberadas en intervalo de tiempo constante son la \textbf{linea de trazos} (ver figura~\ref{litra}). Note que en la figura~\ref{litra}, el numero sobre la particula indica el orden en que fueron liberadas dentro del fluido. Si el flujo es \emph{no permanente}, el campo de velocidades cambia por lo que las lineas de trazos no pueden coincidiran con las \emph{lineas de flujo} ni con las \emph{trayectorias de corriente}. 
+Si insertamos un pequeno tubo dentro de un fluido e introducimos un  trazador continuo dentro del fluido, la curva que forma las diferentes particulas trazadoras liberadas en intervalo de tiempo constante son la \textbf{linea de trazos} (ver figura~\ref{litra}). Note que en la figura~\ref{litra}, el numero sobre la particula indica el orden en que fueron liberadas dentro del fluido. 
 % Fig 4-23 Cengel 
 \begin{figure}[h]
 \centering
 \includegraphics[width=8cm]{litra}
-\caption{Trayectoria de corriente de una particula.}
+\caption{Line de trazos formada por la inyeccion continua de un trazador en un fluido.}
 \label{litra}
 \end{figure}
+Mientras que en \emph{flujo permanente}, las \emph{lineas de flujo}, las \emph{trayectorias de corriente} y las \emph{lineas de trazos} son iguales, en \emph{flujo no permanente} estas no coinciden. La principal diferencia es que las lineas de flujo son patrones instantaneos de flujo mientras que las lineas de trazos es una foto del patron promedio del flujo en un invervalo de tiempo y las trayectorias de corriente son el recorrido de una particula en un intervalo de tiempo. 
+
+% WE NEED VIDEOS TO EXPLAIN THE DIFERENCES
+
+En un campo de flujo conocido, la linea de trazos puede conocerse a partir de la inyeccion continua de un trazador en un fluido desde un tiempo inicial de la inyeccion $t_{inject}$ hasta un tiempo actual $t_{present}$ utilizando la ecuacion~\ref{patl} as:
+\begin{equation}
+\vec{x} = \vec{x}_{injection} + \int_{t_{inject}}^{t_{present}} \vec{V} dt
+\label{trazl}
+\end{equation}
 
 
-
+\subsection{Lineas de tiempo}
+Las \textbf{lineas de tiempo} son representadas por particulas adjacentes para $t_0$  cuya linea se va deformando a lo largo del flujo gracias al campo de velocidades (ver figura~\ref{linet}). Estas son importantes para examinar la uniformidad del flujo. 
+% Fig 4-28 Cengel 
+\begin{figure}[h]
+\centering
+\includegraphics[width=8cm]{linet}
+\caption{Linea de tiempo formada por particulas que se deforma en el tiempo debido al campo de flujo.}
+\label{linet}
+\end{figure}
 \end{document}
