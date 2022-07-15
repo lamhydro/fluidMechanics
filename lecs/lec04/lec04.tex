@@ -174,7 +174,7 @@ En un campo de flujo conocido, la linea de trazos puede conocerse a partir de la
 
 
 \subsection{Lineas de tiempo}
-Las \textbf{lineas de tiempo} son representadas por particulas adjacentes para $t_0$  cuya linea se va deformando a lo largo del flujo gracias al campo de velocidades (ver figura~\ref{linet}). Estas son importantes para examinar la uniformidad del flujo. 
+Las \textbf{lineas de tiempo} son representadas por particulas adjacentes para $t_0$  cuya linea se va deformando a lo largo del flujo gracias al campo de velocidades y la friccion con las paredes (ver figura~\ref{linet}). Estas son importantes para examinar la uniformidad del flujo. 
 % Fig 4-28 Cengel 
 \begin{figure}[h]
 \centering
@@ -182,4 +182,40 @@ Las \textbf{lineas de tiempo} son representadas por particulas adjacentes para $
 \caption{Linea de tiempo formada por particulas que se deforma en el tiempo debido al campo de flujo.}
 \label{linet}
 \end{figure}
+
+\section{Tipos de movimiento o deformaci\'on de un elemento de fluido}
+Un elemento de fluido puede estar sometido a cuatro tipos de movimiento o deformaci\'on:\textbf{traslaci\'on}, \textbf{rotaci\'on}, \textbf{deformaci\'on lineal} y \textbf{deformaci\'on cortante} (ver figura~\ref{tmove}). El estudio de la dinamica de fluidos es complicado ya que estos tipos de movimiento ocurren muchas veces simultaneamente. Estos tipos de movimiento son descritos en terminos de tasas (en matematicas, velocidad y sus derivadas): \emph{velocidad} (tasa de traslaci\'on), \emph{velocidad angular} (tasa de rotaci\'on), \emph{tasa de deformaci\'on lineal}, \emph{tasa de deformaci\'on cortante}.
+
+% Fig 4-35 Cengel 
+\begin{figure}[h]
+\centering
+\includegraphics[width=8cm]{tmove}
+\caption{Tipos de movimiento o deformacion de un fluido: a) traslaci\'on, b) rotaci\'on, c) deformaci\'on lineal y d) deformaci\'on cortante.}
+\label{tmove}
+\end{figure}
+
+\begin{itemize}
+\item[Vector de la tasa de traslacion o vector velocidad]
+$$
+\vec{V}=u\vec{i}+v\vec{j}+w\vec{k}
+$$
+
+$\vec{V}$ describr el desplazamiento de un elemento de una posicion ($x,y,z$) a otra.
+
+\item[Tasa de rotacion (velocidad angular)] en un punto es definida como la tasa de rotacion promedio de dos lineas perpendiculares que se intersectan en dicho punto. Consideremos la figura~\ref{rotat} en donde un elemento en 2D rota, se traslada y se deforma. En el tiempo $t_1$,  las lineas $a$ y $b$ se intersectan perpendicularmente en el punto $P$ en el plano $xy$. Cuando el elemento se mueve y rota en un intervalo $dt=t_2 - t_1$, en el timepo $t_2$ la linea $a$ rota un angulo $\alpha_a$ y la linea $b$ rota $\alpha_b$, ambos angulos son positivos porque ellos rotan en contra de las manecillas del reloj. El angulo promedio de rotacion en $dt$ es por lo tanto $(\alpha_a +\alpha_b)/2$. La tasa de rotacion  o velocidad angular $\omega$ es entonces la derivada con respecto a $t$ de el angulo promedio como:
+% Fig 4-36 Cengel 
+\begin{figure}[h]
+\centering
+\includegraphics[width=8cm]{rotat}
+\caption{Rotacio, traslacion y deformacion de un elemento de fluido en 2D. Definicion de la rotaci\'on en el punto $P$.}
+\label{rotat}
+\end{figure}
+
+$$
+\omega = \frac{d}{dt}\left( \frac{\alpha_a + \alpha_b}{2} \right) = \frac{1}{2} \left( \frac{\partial v}{\partial x}-\frac{\partial u}{\partial y}
+
+
+
+
+\end{itemize}
 \end{document}
