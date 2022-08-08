@@ -1,0 +1,249 @@
+\documentclass [xcolor=svgnames, t] {beamer} 
+\usepackage[utf8]{inputenc}
+\usepackage{booktabs, comment} 
+\usepackage[absolute, overlay]{textpos} 
+\usepackage{pgfpages}
+\usepackage[font=footnotesize]{caption}
+\useoutertheme{infolines} 
+
+
+
+%\definecolor{brownbrown}{RGB}{56, 28, 0}
+%\definecolor{brownred}{RGB}{228, 0, 43}
+
+%\setbeamercolor{title in head/foot}{bg=brownred, fg=brownbrown}
+%\setbeamercolor{author in head/foot}{bg=myuniversity}
+\setbeamertemplate{page number in head/foot}{}
+\usepackage{csquotes}
+
+
+\usepackage{amsmath}
+\usepackage[makeroom]{cancel}
+
+
+\usepackage{textpos}
+
+\usepackage{tikz}
+
+\usetheme{Madrid}
+%\definecolor{myuniversity}{RGB}{56, 28, 0}
+%\usecolortheme[named=myuniversity]{structure}
+\usepackage{tikz}
+
+
+
+\title[Introducci\'on]{Clase No.1: Introducci\'on}
+\subtitle{Objetivos, metodolog\'ia y evaluaci\'on}
+\institute[]{Departamento de Ingenier\'ia Civil y Agr\'icola\\ Facultad de Ingenier\'ia  \\Universidad Nacional de Colombia - Sede Bogot\'a}
+\titlegraphic{\includegraphics[height=2.0cm]{escudoUnal.png}}
+\author[LAM]{Luis Alejandro Morales}
+
+
+%\institute[]{Department of Earth, Environmental, and Planetary Sciences  \\Brown University}
+\date{\today}
+
+
+\addtobeamertemplate{navigation symbols}{}{%
+    \usebeamerfont{footline}%
+    \usebeamercolor[fg]{footline}%
+    \hspace{1em}%
+    \insertframenumber/\inserttotalframenumber
+}
+
+\begin{document}
+\begin{frame}
+\maketitle
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\logo{\includegraphics[height=1.0cm]{escudoUnal.png}~%
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\begin{frame}
+\frametitle{Table of Contents}
+\tableofcontents
+\end{frame}
+
+\section{Acerca de mi}
+\begin{frame}{Estudios}
+\begin{itemize}
+\item Pregrado: \textbf{Ingenier\'ia Civil}, \emph{Escuela Colombiana de Ingenier\'ia} - (2002)
+\item Especializaci\'on: \textbf{Recursos Hidr\'aulicos y Medio Ambiente}, \emph{Escuela Colombiana de Ingenier\'ia} - (2003)
+\item Maestria: \textbf{Ingenier\'ia de Recursos Hidr\'aulicos}, \emph{Universidad Nacional de Colombia - Sede Bogot\'a} - (2007)
+\item Ph.D.: \textbf{Geograf\'ia F\'isica (Major Hidrolog\'ia)}, \emph{University College London (UCL)} - (2013)
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Experiencia}
+\begin{itemize}
+\item Teaching: \textbf{Programaci\'on en UNIX/Linux}, \emph{University College London (UCL)} - (2008-2013)
+\item Teaching: \textbf{River Science}, \emph{Global Institute for Water Security (GIWS)-University of Saskatchewan} - (2013-2019)
+\item Postdoctoral Reseach Fellow: \textbf{Modelaci\'on hidrol\'ogica y de calidad de agua}, \emph{Global Institute for Water Security (GIWS)-University of Saskatchewan} - (2013-2019)
+\item Physical Scientist: \textbf{Modelaci\'on y predicci\'on hidrol\'ogica}, \emph{Environment and Climate Change Canada (ECCC) - Gobernment of Canada} - (2019-2022)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Mis sitios}
+\begin{block}{Website}
+\href{https://lamhydro.github.io}{https://lamhydro.github.io}
+\end{block}
+
+\begin{block}{Otros}
+\begin{itemize}
+\item \href{https://scholar.google.ca/citations?user=Lc95RL0AAAAJ&hl=en}{Google Scholar}
+\item \href{https://www.researchgate.net/profile/Luis-Morales-Marin}{Research Gate}
+\end{itemize}
+\end{block}
+\end{frame}
+
+\section{Generalidades}
+\begin{frame}{El Profesor}
+\begin{block}{Informacion}
+\begin{itemize}
+\item \alert{Oficina}: Edificio Laboratorio de Hidr\'aulica, oficina 307 
+\item \alert{Email}: lmoralesm@unal.edu.co
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{La asignatura}
+\begin{itemize}
+\item Identificaci\'on de la asignatura: \alert{2015966}
+\item Duracion clase presencial: \alert{5 hrs/semana}
+\item No. de semanas: \alert{16}
+\item No. de creditos: \alert{4}
+\item ¿Esta asignatura es validable?: \alert{No}
+\item ¿Asignatura de libre eleccion?: \alert{No}
+\item Planes de estudio a los que se asocia la asignatura
+\begin{itemize}
+\item \alert{2540 Ingenieria Agricola Componente C}
+\item \alert{2541 Ingenieria Civil Componente C}
+\end{itemize}
+\item Prerequisitos
+\begin{itemize}
+\item \alert{Calculo en varias variables}
+\item \alert{Ecuaciones diferenciales}
+\item \alert{Estatica}
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{P\'agina de la asignatura}
+\begin{block}{P\'agina de la asignatura}
+\href{https://github.com/lamhydro/fluidMechanics}{https://github.com/lamhydro/fluidMechanics}
+\end{block}
+\end{frame}
+
+\section{Horario de clases}
+\begin{frame}{Horario de clases}
+\centering
+\includegraphics[width=9cm]{horarioClases}
+\end{frame}
+
+\section{Descripci\'on}
+\begin{frame}{Descripci\'on}
+\begin{block}{Descripci\'on}
+La asignatura mecánica de fluidos se centra en el estudio y análisis de las propiedades físicas más relevantes de los fluidos a partir de los aspectos fundamentales de la física, el cálculo y las ecuaciones diferenciales. Con ello el curso se centra en el estudio y aplicación de cuatro principios: de Pascal, de conservación de la masa, de conservación de la energía, momentum lineal y angular, principios que se aplican a diferentes condiciones de contorno a los cuales están sometidos los fluidos. Finalmente se hace una introducción al análisis dimensional y semejanza hidráulica.
+\end{block}
+\end{frame}
+
+
+\section{Conceptos previos necesarios}
+\begin{frame}{Conceptos previos necesarios}
+\begin{block}{Conceptos previos necesarios}
+El curso requiere el uso de herramientas matemáticas para la solución de ecuaciones diferenciales y el entendimiento básico de los teoremas fundamentales del cálculo multivariado, así como los conocimientos básicos de Estática. Es deseable que los estudiantes tengan conocimientos básicos en programación de computadores y el manejo de herramientas de métodos numéricos.
+\end{block}
+\end{frame}
+
+\section{Objetivo}
+\begin{frame}{Objetivo}
+\begin{block}{Objetivo}
+Dar a conocer las leyes físicas fundamentales que tienen que ver con el comportamiento de los fluidos y sus aplicaciones a problemas típicos de la Ingeniería. Al finalizar el curso, el estudiante debe estar en capacidad de aplicar las ecuaciones básicas de mecánica de fluidos.
+\end{block}
+\end{frame}
+
+\section{Contenido general de la materia}
+
+\begin{frame}{1. Propiedades de los fluidos}
+Sistemas de unidades, transformación de unidades, definición de presión y esfuerzo de corte. Ley de viscosidad de Newton, tipos de fluidos, tipos de flujo, propiedades de los fluidos, ecuación de estado de los gases, Gases perfectos.
+\end{frame}
+
+\begin{frame}{2. Estatica de los fluidos}
+Fluidos en reposo, escala de medida de la presión y de temperatura, ecuación fundamental de la estática de los fluidos, fluido incompresible, fluido compresible, principio de Pascal, aparatos medidores de presión, fuerzas sobre cuerpos sumergidos: superficies planas, superficies curvas, principios de flotación. Equilibrio relativo de fluidos en movimiento, aceleración lineal uniforme, rotación uniforme alrededor de un eje vertical.
+\begin{itemize}
+\item Laboratorios: Aparatos medidores de presión, Ensayos de flotación, Propiedades de los fluidos (banco de estática), Aparato de Reynolds
+\end{itemize}
+\end{frame}
+
+\begin{frame}{3. Cinematica de los fluidos}
+Generalidades, propiedades cinemáticas del flujo, métodos para describir el movimiento de un fluido, método de Lagrange, método de Euler, flujo volumétrico y flujo másico, línea de corriente, clasificación de los flujos, Teorema de Transporte de Reynolds, ecuación de continuidad para un volumen de control, continuidad en un punto, flujo potencial y función de corriente, relación entre flujo potencial y función de corriente.
+\begin{itemize}
+\item Laboratorio: Hele-Shaw.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{4. Dinamica de los fluidos}
+Ecuación de energía para flujos incompresibles y significado físico, concepto de línea de energía, línea de gradiente hidráulico y potencia hidráulica. Aplicaciones de la ecuación de energía a sistemas de conducción: tuberías, canales, sistemas de bombeo, sistemas de generación hidroeléctrica, medidores de caudal: orificios, tubo Pitot, tubo Venturi, medidor de codo. Cantidad de movimiento: cantidad de movimiento lineal aplicado a: estructuras hidráulicas como compuertas, vertederos, salto hidráulico, accesorios en tuberías, álabes fijos y móviles. cantidad de movimiento angular.
+\begin{itemize}
+\item Laboratorios: Línea de energía y línea de gradiente hidráulico, Flujo compresible, Tubo Pitot, Aparatos medidores de caudal: orificio, tubo Venturi.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{5. Analisis dimensional}
+\begin{columns}
+\column{0.5\textwidth}
+Ecuación dimensionalmente homogénea, parámetros adimensionales relevantes en mecánica de fluidos, obtención de ecuaciones, teorema pi de Buckingham, determinación de los grupos adimensionales, leyes de semejanza, clasificación de los modelos físicos, aplicaciones.
+\column{0.6\textwidth}
+\begin{center}
+\includegraphics[width=\textwidth]{dimana}
+\end{center}
+\end{columns}
+\end{frame}
+
+\section{Evaluaci\'on del curso}
+\begin{frame}{Evaluaci\'on del curso}
+\centering
+\includegraphics[width=9cm]{eval}
+\end{frame}
+
+\section{Referencias}
+\begin{frame}{Referencias}
+\begin{block}{Recomendadas}
+\begin{enumerate}
+\item \textbf{Çengel, Y. A., \& Cimbala, J. M. (2010). Fluid Mechanics: Fundamentals and Applications, McGraw-Hill Higher Education.}
+\item \textbf{Duarte, C. A. (2017). Mecánica de fluidos e hidráulica, Universidad Nacional de Colombia, Facultad de Ingeniería,Departamento de Ingeniería Civil y Agrícola.}
+\item \textbf{White, F. (2015). Fluid Mechanics, McGraw-Hill Higher Education.}
+\end{enumerate}
+\end{block}
+\end{frame}
+
+\begin{frame}{Referencias}
+\begin{block}{Otros}
+\begin{enumerate}
+\item Franzini, J. B., \& Finnemore, E. J. (1997). Fluid Mechanics with Engineering Applications: McGraw-Hill.
+\item Liu, C. (2013). Schaum’s Outline of Fluid Mechanics and Hydraulics, 4th Edition: McGraw-Hill Education.
+\item Mott, R. L. (2006). Applied Fluid Mechanics: Pearson Prentice Hall.
+\item Potter, M. C., Wiggert, D. C., \& Ramadan, B. H. (2016). Mechanics of Fluids, SI Edition: Cengage Learning.
+\item Pritchard, P. J. (2010). Fox and McDonald's Introduction to Fluid Mechanics, 8th Edition: John Wiley \& Sons.
+\item Roberson, J. A., \& Crowe, C. T. (1999). Engineering Fluid Mechanics: Jaico Publishing House.
+\item Shames, I. H. (1992). Mechanics of Fluids: McGraw-Hill.
+\item Sotelo, G. (1974). Hidráulica general: fundamentos: Limusa.
+\item Street, R. L., Watters, G. Z., \& Vennard, J. K. (1995). Elementary Fluid Mechanics: Wiley.
+\item Streeter, V. L., \& Wylie, E. B. (1979). Fluid mechanics: McGraw-Hill.
+\end{enumerate}
+\end{block}
+\end{frame}
+
+%\begin{frame} [allowframebreaks]\frametitle{References}
+               
+%        \bibliographystyle{apalike}
+%        \bibliography{bibfile}
+%\end{frame}
+
+\end{document}
+
