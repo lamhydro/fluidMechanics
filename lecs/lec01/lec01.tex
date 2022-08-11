@@ -75,51 +75,6 @@ Liquidos y gases (o vapores) se diferencian en que al tener un liquido en un con
 \end{figure}
 
 
-\subsection{Clasificaci\'on de los fluidos}
-\subsubsection{Flujos viscosos vs flujos inviscidos} 
-La resistencia interna a fluir de un fluido es denominada como \textbf{viscosidad} el cual es una medida de la pegajosidad de un fluido. La viscosidad es causada por las fuerzas cohesivas entre moleculas en liquidos y por las coliciones molecurales en gases. Flujos en los cuales las fuerzas de fricci\'on son significantes son llamadas \textbf{flujos viscosos}. Sin embargo existen regiones en las cuales las fuerzas muy peque\~nas en comparacion con fuerzas inerciales y o de presion y son denominadas regiones de \textbf{flujo inviscido}.
-
-\subsubsection{Flujos internos vs flujos externos} 
-Un flujo es clasificado como externo o interno dependiendo de si fluye sobre una superficie o en un espacio confinado. Por ejemplo, el flujo sobre una lamina o un cilindro se deno\textbf{flujo externo}. El flujo a lo largo de una tuberia (e.g en un acueducto) se denomina \textbf{flujo interno}. En flujos internos son dominados por la viscosidad mientras que en flujos externos la viscosidad estan limitados a la capa limite.
-
-\subsubsection{Flujos compresibles vs flujos incompresibles} 
-Un \textbf{flujo compresible} es un flujo en el cual la densidad varia mientras un \textbf{flujo incompresible} es aquel en donde la densidad permanece constante (cada porcion del volumen del flujo permanece igual). Los liquidos son considerados como fluidos incompresibles mientras que los gases, los cuales cambian su densidad cuando son sometidos a presion, son considerados compresibles. Mientras que un fluido sometido a una presion igual 210 atm cambia su densidad en un 1\%, un gas cambia en la misma proporcion cuando se aumenta la presion en 0.01 atm. 
-
-
-\subsubsection{Flujo laminar vs flujo turbulento}
-Aquellos flujos que se mueven ordenadamente formando laminas de particulas que se mueven adyacentemente son denonominados \textbf{flujos laminares}. Flujos altamente viscosos como el aceite moviendose a velocidades bajas son tipicamente laminares. En contraste, flujos que mueven de manera desordenada debido a las altas velocidades son denominados \textbf{flujos turbulentos}. Flujos de baja viscosidad como el aire son considerados como turbulentos. Un flujo que cambia de laminar a turbulento o viceversa es un \textbf{flujo de transici\'on} (see Figura~\ref{fLamTur}). Los experimentos realizados por Osborne Reynolds en 1880 resultaron en el establecimiento del \textbf{Numero de Reynolds}, el cual es un numero adimensional que se usa para clasificar el regimen de flujo en tuberias.  
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=8cm]{fLamTur}
-\caption{a) flujo laminar, b) flujo de transicion y c) flujo turbulento (Ansys, Inc.).}
-\label{fLamTur}
-\end{figure}
-
-\subsubsection{Flujos naturales vs flujos forzados}
-Un flujo es natural o forzado dependiendo de como el movimiento del fluido es iniciado. Un \textbf{flujo forzado} es un  flujo cuyo movimento es iniciado por un medio externo como por ejemplo una bomba o un ventilador en una tuberia. En contraste, un \textbf{flujo natural} es produducido por medios naturales como por ejemplo el movimiento ascendente de flujos caliendes y el moviento descendiente de flujos frios en un lago gracias a los cambios de temperatura y por lo tanto de la densidad. 
-
-\subsubsection{Flujo permanente vs flujo no permanente}
-Un \textbf{flujo permanente} es aquel en donde propiedades como la velocidad, la temperature, etc en un punto no cambian en un intervalo de tiempo. Lo opuesto ocurre en \textbf{flujos no permanentes} o \textbf{flujos transitorios}. Bombas, compresores e intercanbiadores de calor funcionan, en terminos generales y por largos periodos de tiempo, bajo condiciones de flujo permanente a pesar que el flujo local se comporta como flujo no permanente. Esto quiere decir que la masa, el volumen y la energia tambien permanecen constantes. El estudio de flujos permanentes implica promediar caracteristicas de flujo como campos de flujo y de presi\'on (ver Figura~\ref{steNos}b). Sin embargo, si se requiere estudiar las vibraciones inducidades por un flujo, fluctuaciones de presion y ondas, es necesario consider el flujo como no permanente (ver Figura~\ref{steNos}a). 
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=8cm]{steNos}
-\caption{a) foto instantanea de flujo (no permanente) y b) exposicion del flujo en un intervalo de tiempo \cite{this}.}
-\label{steNos}
-\end{figure}
-
-\subsubsection{Flujo en una, dos y tres dimensiones}
-Dependiendo de la distribuci\'on de la velocidad, un flujo puede ser clasificado como unidimensional, bidimensional o tredimensional. Un \textbf{flujo tredimensional (3D)} es aquel en el cual la velocidad cambia en las tres dimensiones espaciales; $\vec{V}(x,y,z)$ en coordenadas cartesianas o $\vec{V}(r,\theta,z)$ en coordenadas cilindricas. Cuando la variaci\'on de la velocidad es menor en cierta direcci\'on con respecto a otra direcci\'on, el flujo puede considerarse como \textbf{bidimensional (2D)} o \textbf{unidimensional (1D)}.
-Consideremos un flujo permanente a travez de una tuberia circular conectada a un tanque (ver Figura~\ref{flowd}). De acuerdo a la condici\'on de no deslizamiento, la velocidad en las parededes de la tuberia es zero. El flujo es 2D en la regi\'on de entrada a la tuberia por que la velocidad cambia con respecto a la direcci\'on en $r$ y $z$. El perfil de velocidades en la tuberia al desarrollarse completamente despues de cierda distancia de la entrada se considera un flujo 1D por que solo varia en la direcci\'on radial $r$. Note que el flujo es 1D es coordenadas cilindricas y 2D en cordenadas cartersianas; de ah\'i la importancia de escoger correctamente el sistema de coordenadas. El flujo en rios peque\~nos puede considerarse como flujo 1D mientras que el flujo en lagos es usualmente considerado 3D.
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=8cm]{flowd}
-\caption{Perfil de velocidad 2D, $\vec{V}(r,z)$, a la entrada de la tuberia. Este se convierte en 1D, $\vec{V}(r)$, a  cierta distancia de la entrada \cite{this}.}
-\label{flowd}
-\end{figure}
-
 
 \subsection{Sistemas de unidades}
 Cualquier cantidad es caracterizada por sus \textbf{dimensiones} y las magnitudes asignadas a las dimensiones son llamadas \textbf{unidades}.
@@ -361,12 +316,54 @@ $$
 \textcolor{red}{\textbf{La funcion para Q es $Q = C \ B \ g^{1/2} \ H^{3/2}$ donde C es una constante de proporcionalidad.}}
 \end{center}
 
-
-
-
-
 \end{exa}
 \end{shaded}
+
+
+\subsection{Clasificaci\'on de los fluidos}
+\subsubsection{Flujos viscosos vs flujos inviscidos} 
+La resistencia interna a fluir de un fluido es denominada como \textbf{viscosidad} el cual es una medida de la pegajosidad de un fluido. La viscosidad es causada por las fuerzas cohesivas entre moleculas en liquidos y por las coliciones molecurales en gases. Flujos en los cuales las fuerzas de fricci\'on son significantes son llamadas \textbf{flujos viscosos}. Sin embargo existen regiones en las cuales las fuerzas muy peque\~nas en comparacion con fuerzas inerciales y o de presion y son denominadas regiones de \textbf{flujo inviscido}.
+
+\subsubsection{Flujos internos vs flujos externos} 
+Un flujo es clasificado como externo o interno dependiendo de si fluye sobre una superficie o en un espacio confinado. Por ejemplo, el flujo sobre una lamina o un cilindro se deno\textbf{flujo externo}. El flujo a lo largo de una tuberia (e.g en un acueducto) se denomina \textbf{flujo interno}. En flujos internos son dominados por la viscosidad mientras que en flujos externos la viscosidad estan limitados a la capa limite.
+
+\subsubsection{Flujos compresibles vs flujos incompresibles} 
+Un \textbf{flujo compresible} es un flujo en el cual la densidad varia mientras un \textbf{flujo incompresible} es aquel en donde la densidad permanece constante (cada porcion del volumen del flujo permanece igual). Los liquidos son considerados como fluidos incompresibles mientras que los gases, los cuales cambian su densidad cuando son sometidos a presion, son considerados compresibles. Mientras que un fluido sometido a una presion igual 210 atm cambia su densidad en un 1\%, un gas cambia en la misma proporcion cuando se aumenta la presion en 0.01 atm. 
+
+
+\subsubsection{Flujo laminar vs flujo turbulento}
+Aquellos flujos que se mueven ordenadamente formando laminas de particulas que se mueven adyacentemente son denonominados \textbf{flujos laminares}. Flujos altamente viscosos como el aceite moviendose a velocidades bajas son tipicamente laminares. En contraste, flujos que mueven de manera desordenada debido a las altas velocidades son denominados \textbf{flujos turbulentos}. Flujos de baja viscosidad como el aire son considerados como turbulentos. Un flujo que cambia de laminar a turbulento o viceversa es un \textbf{flujo de transici\'on} (see Figura~\ref{fLamTur}). Los experimentos realizados por Osborne Reynolds en 1880 resultaron en el establecimiento del \textbf{Numero de Reynolds}, el cual es un numero adimensional que se usa para clasificar el regimen de flujo en tuberias.  
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=8cm]{fLamTur}
+\caption{a) flujo laminar, b) flujo de transicion y c) flujo turbulento (Ansys, Inc.).}
+\label{fLamTur}
+\end{figure}
+
+\subsubsection{Flujos naturales vs flujos forzados}
+Un flujo es natural o forzado dependiendo de como el movimiento del fluido es iniciado. Un \textbf{flujo forzado} es un  flujo cuyo movimento es iniciado por un medio externo como por ejemplo una bomba o un ventilador en una tuberia. En contraste, un \textbf{flujo natural} es produducido por medios naturales como por ejemplo el movimiento ascendente de flujos caliendes y el moviento descendiente de flujos frios en un lago gracias a los cambios de temperatura y por lo tanto de la densidad. 
+
+\subsubsection{Flujo permanente vs flujo no permanente}
+Un \textbf{flujo permanente} es aquel en donde propiedades como la velocidad, la temperature, etc en un punto no cambian en un intervalo de tiempo. Lo opuesto ocurre en \textbf{flujos no permanentes} o \textbf{flujos transitorios}. Bombas, compresores e intercanbiadores de calor funcionan, en terminos generales y por largos periodos de tiempo, bajo condiciones de flujo permanente a pesar que el flujo local se comporta como flujo no permanente. Esto quiere decir que la masa, el volumen y la energia tambien permanecen constantes. El estudio de flujos permanentes implica promediar caracteristicas de flujo como campos de flujo y de presi\'on (ver Figura~\ref{steNos}b). Sin embargo, si se requiere estudiar las vibraciones inducidades por un flujo, fluctuaciones de presion y ondas, es necesario consider el flujo como no permanente (ver Figura~\ref{steNos}a). 
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=8cm]{steNos}
+\caption{a) foto instantanea de flujo (no permanente) y b) exposicion del flujo en un intervalo de tiempo \cite{this}.}
+\label{steNos}
+\end{figure}
+
+\subsubsection{Flujo en una, dos y tres dimensiones}
+Dependiendo de la distribuci\'on de la velocidad, un flujo puede ser clasificado como unidimensional, bidimensional o tredimensional. Un \textbf{flujo tredimensional (3D)} es aquel en el cual la velocidad cambia en las tres dimensiones espaciales; $\vec{V}(x,y,z)$ en coordenadas cartesianas o $\vec{V}(r,\theta,z)$ en coordenadas cilindricas. Cuando la variaci\'on de la velocidad es menor en cierta direcci\'on con respecto a otra direcci\'on, el flujo puede considerarse como \textbf{bidimensional (2D)} o \textbf{unidimensional (1D)}.
+Consideremos un flujo permanente a travez de una tuberia circular conectada a un tanque (ver Figura~\ref{flowd}). De acuerdo a la condici\'on de no deslizamiento, la velocidad en las parededes de la tuberia es zero. El flujo es 2D en la regi\'on de entrada a la tuberia por que la velocidad cambia con respecto a la direcci\'on en $r$ y $z$. El perfil de velocidades en la tuberia al desarrollarse completamente despues de cierda distancia de la entrada se considera un flujo 1D por que solo varia en la direcci\'on radial $r$. Note que el flujo es 1D es coordenadas cilindricas y 2D en cordenadas cartersianas; de ah\'i la importancia de escoger correctamente el sistema de coordenadas. El flujo en rios peque\~nos puede considerarse como flujo 1D mientras que el flujo en lagos es usualmente considerado 3D.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=8cm]{flowd}
+\caption{Perfil de velocidad 2D, $\vec{V}(r,z)$, a la entrada de la tuberia. Este se convierte en 1D, $\vec{V}(r)$, a  cierta distancia de la entrada \cite{this}.}
+\label{flowd}
+\end{figure}
 
 
 
