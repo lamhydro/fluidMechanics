@@ -1,79 +1,115 @@
-\documentclass[11pt, oneside]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
-\usepackage{geometry}                		% See geometry.pdf to learn the layout options. There are lots.
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{svg}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\pagestyle{empty}
+\titleformat*{\section}{\large\bfseries}
+
+%
 \geometry{letterpaper}                   		% ... or a4paper or a5paper or ... 
-%\geometry{landscape}                		% Activate for rotated page geometry
-\usepackage[parfill]{parskip}    			% Activate to begin paragraphs with an empty line rather than an indent
-\usepackage{graphicx}				% Use pdf, png, jpg, or epsÂ§ with pdflatex; use eps in DVI mode
-								% TeX will automatically convert eps --> pdf in pdflatex		
-\usepackage{amssymb}
-\usepackage{mathtools}
-\usepackage{enumerate}
-\usepackage{tikz}
+%\geometry{
+% letter,
+% total={170mm,240mm},
+% left=20mm,
+% top=30mm,
+% }
 
-\usetikzlibrary{arrows}
+%\date{}
 
-\def\firstcircle{(90:1.75cm) circle (2.5cm)}
-\def\secondcircle{(210:1.75cm) circle (2.5cm)}
-\def\thirdcircle{(330:1.75cm) circle (2.5cm)}
+%Bitte ausfüllen
+\newcommand\course{Mec\'anica de Fluidos}
+\newcommand\hwnumber{2015966}
+\newcommand\Name{Alejandro Morales (Ph.D.)}
+\newcommand\Neptun{Depto. Ing. Civil y Agr\'icola, UNAL}
 
-%SetFonts
+%Matheinheiten
+\newcommand\m{\:\textrm{m}}
+\newcommand\M{\:\Big[\textrm{m}\Big]}
+\newcommand\mm{\:\textrm{mm}}
+\newcommand\MM{\:\Big[\textrm{mm}\Big]}
+\newcommand\un{\underline}
+\newcommand\s{\:\textrm{s}}
+\newcommand\bS{\:\Big[\textrm{S}\Big]}
+\newcommand\ms{\:\frac{\textrm{m}}{\textrm{s}}}
+\newcommand\MS{\:\Big[\frac{\textrm{m}}{\textrm{s}}\Big]}
+\newcommand\mss{\:\frac{\textrm{m}}{\textrm{s}^2}}
+\newcommand\MSS{\:\Big[\frac{\textrm{m}}{\textrm{s}^2}\Big]}
 
-%SetFonts
+%Bitte nicht einstellen
+\pagestyle{fancyplain}
+\headheight 35pt
+\lhead{\Name\\\Neptun}
+%\chead{\textbf{\Large Taller No.1a\\ asdfasdfsadf }}
+\rhead{\course\ (\hwnumber) \\ 2022-II}
+\lfoot{}
+\cfoot{}
+\rfoot{\small\thepage}
+\headsep 1.5em
 
-
-\title{\vspace{-3cm} Mec\'anica de Fluidos (2015966)\\Taller 1a: Transformaci\'on de unidades y propiedades de los fluidos \vspace{-0.7cm}}
-\vspace{-1cm}
-\author{Alejandro Morales \\ \texttt{lmoralesm@unal.edu.co}}
-\date{}							% Activate to display a given date or no date
+%\title{\vspace{-1cm}Taller 1a: Transformaci\'on de unidades y propiedades de los fluidos \vspace{-0.7cm}}
+%\vspace{-3cm}
+%\author{Alejandro Morales \\ \texttt{lmoralesm@unal.edu.co}}
 
 \begin{document}
-
-\maketitle
-
-\vspace{-1.1cm}
-\section*{Ejercicio 1}\vspace{-0.3cm}
-La unidad de energ\'ia en el sistema ingles de unidades esta data por ($lb pie$). Convierta una unidad de energia en este sistema al sistema internacional de unidades.
-
-
-\section*{Ejercicio 2}\vspace{-0.3cm}
-La viscosidad absoluta del mercurio es de 1.7 $cP$ y su gravedad especifica es 13.6 a temperatura y presion atmosferica estandard. Encuentre la viscosidad cinematica en el sistema internacional y en el sistema Ingles.
-
-
-\section*{Ejercicio 3}\vspace{-0.3cm}
-Determine el peso y la gravedad especifica de un galon de liquido si este tiene una masa de 0.258 $slug$. Exprese todas las variables en el sistema Ingles.
-
-\section*{Ejercicio 4}\vspace{-0.3cm}
-A presion atmosferica $P_{atm}=14.7\ psi$, un tanque contiene 120 $pie^3$ de agua que pesan 7488 $lb$. Determine:
-\begin{itemize}
-\item[a.] Su densidad
-\item[b.] si la presion se eleva a 1470 $psi$, cual es el valor de la densidad?
-\end{itemize}
-	
-
-\section*{Pregunta 2}\vspace{-0.3cm}
-Convertir las siguientes unidades:
-\begin{itemize}
-\item[a.] 60.1 $pul$ a $cm$ 
-\item[b.] 108 $m$ a $pie$
-\item[c.] Aceleraci\'on de la gravedad a $pie/s^2$
-\end{itemize}
-	
-\section*{Pregunta 3}\vspace{-0.3cm}
-Un carro de juguete de masa $m=50g$ viaja suavemente hacia abajo sobre un plano inclinado a 30$^o$ de la horizontal. Calcular la fuerza en direcci\'on del movimiento del carro y la fuerza normal. Despreciar la fuerza de fricci\'on.
-	
-\section*{Pregunta 4}\vspace{-0.3cm}
-Solucionar los siguientes ejercicios:
-\begin{itemize}
-\item[a.] $\int 3e^x dx$ 
-\item[b.] $\int (3x^2 - \sqrt{5x} +2) dx$
-\end{itemize}
-	
-\section*{Pregunta 5}\vspace{-0.3cm}
-Dada el area mostrada en la figura, calcular la localizacion del centroide ($\bar{x}$,$\bar{y}$).
-\vspace{-0.2cm}
 \begin{center}
-\includegraphics[scale=2.0]{exer5}
+\Large Taller No.1a\\ \emph{Transformaci\'on de unidades y propiedades de los fluidos}
 \end{center}
 
+%\maketitle
+
+\section*{Ejercicio 1}\vspace{-0.3cm}
+Las unidades de energ\'ia en el sistema ingl\'es de unidades est\'an dadas por ($lb\ pie$). Convierta una unidad de energ\'ia en este sistema al sistema internacional de unidades.
+
+% White P1.12 
+\section*{Ejercicio 2}\vspace{-0.3cm}
+Para flujo permanente en una tuber\'ia circular a velocidad baja, la velocidad $u$ var\'ia como:
+$$
+u = B\frac{\Delta p}{\mu}(r^2_0 - r^2)
+$$
+donde $r$ es el radio de la tuber\'ia, $\mu$ es la viscosidad del fluido y $\Delta p$ es el cambio de presi\'on a lo largo de la tuber\'ia. ¿Cuales son las dimensiones de la constante $B$? 
+
+% White P1.21
+\section*{Ejercicio 3}\vspace{-0.3cm}
+En 1908, Heinrich Blasius estudiante de Prandtl, propuso la siguiente f\'ormula para los esfuerzos cortantes ($\tau_w$) de un fluido viscoso:
+$$
+\tau_w = 0.332\rho^{1/2}\mu^{1/2}V^{3/2}x^{-1/2}
+$$
+en donde $V$ es la velocidad, $\rho$ es la densidad, $\mu$ es la viscosidad y $x$ es una distancia recorrida. Determine las dimensiones de la constante 0.332.
+
+
+% White P1.9
+\section*{Ejercicio 4}\vspace{-0.3cm}
+Un contenedor c\'onico invertido, cuyo di\'ametro es 26 $pulg$ y altura 44 $pulg$ est\'a lleno con un liquido a 20 $^oC$. El peso del liquido son 5030 onzas. ¿Cual es la densidad del fluido en $kg/m^3$?
+
+
+\section*{Ejercicio 5}\vspace{-0.3cm}
+La viscosidad absoluta del mercurio es de 1.7 $cP$ y su gravedad espec\'ifica es 13.6 a temperatura y presi\'on atmosf\'erica estandard. Encuentre la viscosidad cinem\'atica en el sistema internacional y en el sistema Ingles.
+
+% Street 1.11
+\section*{Ejercicio 6}\vspace{-0.3cm}
+Si un tanque con aceite pesa 1.5 $kN$, calcular el peso espec\'ifico, la densidad y la gravedad espec\'ifica del aceite. El barril contiene 159 litros y pesa 110 $N$ cuando esta vacio. 
+
+\section*{Ejercicio 7}\vspace{-0.3cm}
+Determine el peso y la gravedad especifica de un gal\'on de l\'iquido si este tiene una masa de 0.258 $slug$. Exprese todas las variables en el sistema Ingl\'es.
+
+\section*{Ejercicio 8}\vspace{-0.3cm}
+A presi\'on atmosf\'erica $P_{atm}=14.7\ psi$, un tanque contiene 120 $pie^3$ de agua que pesa 7488 $lb$. Determine:
+\begin{itemize}
+\item[a.] su densidad.
+\item[b.] Si la presi\'on se eleva a 1470 $psi$, ¿cual es el valor de la densidad?
+\end{itemize}
+
+\section*{Ejercicio 9}\vspace{-0.3cm}
+Si el modulo de elasticidad volum\'etrico del agua es de 300000 $psi$, ¿que presi\'on se requiere para reducir su volumen en 0.5\%?
 	
-\end{document} 
+% Street 1.29
+\section*{Ejercicio 10}\vspace{-0.3cm}
+Si el volumen de un l\'iquido es reducido en 0.035?\% mediante la aplicaci\'on de una presi\'on de 690 $kPa$ o 100 $psi$, ¿cual es el m\'odulo de elasticidad?
+
+
+\end{document}
