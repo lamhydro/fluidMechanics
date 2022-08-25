@@ -163,5 +163,21 @@ donde $\tau$ es el esfuerzo de corte, $u$ es la velocidad en funci\'on de $y$ y 
 %------------ Variation of Parameters Header ---------------------
 \node[fancytitle, right=10pt] at (box.north west) {Ley de viscosidad de Newton};
 \end{tikzpicture}
+
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.45\textwidth}
+    \begin{enumerate}
+    \item En caso de no existir, hacer dibujo con todos los datos del problema. Dibujar las fuerzas que producen el movimiento ($F$) y las fuerzas de corte ($F_c =\tau\ A$), donde $\tau = \mu \frac{du}{dy}$.
+    \item Hacer el balance de fuerzas actuantes en la direcci\'on del movimiento. Ej. $F=F_c$ o $T/d=F=F_c$, donde $T$ es torque o par y $d$ es el brazo del torque.
+    \item Asegurarse de que las unidades de todos los datos est\'en en el mismo sistema de unidades (S.I. o Ingles)
+    \item Resolver el problema. Note que cuando las superficies sobre las cuales act\'uan las fuerzas cortantes del fluido cambian e.g. c\'onos, esferas, etc, el balance de fuerzas debe hacerse en t\'erminos de un diferencial (para ejercicios con conos $dT=r.dF$), ya que las fuerzas cambian y es necesario integrar.  
+    \end{enumerate}
+    \end{minipage}
+};
+%------------ Variation of Parameters Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {Pasos para resolver problemas ley de viscosidad de Newton};
+\end{tikzpicture}
+
 \end{multicols*}
 \end{document}
