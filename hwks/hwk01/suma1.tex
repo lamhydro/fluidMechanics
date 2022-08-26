@@ -73,6 +73,7 @@ Fuerza F & M L T$^{-2}$ & N = kg.m/s$^2$ & lb = slug.pie/s$^2$ & dina \\
 \node [mybox] (box){%
     \begin{minipage}{0.45\textwidth}
 \begin{center}
+\small
 \begin{tabular}{ c c }
  1 m = & 3.28 pies \\
  1 pie = & 0.3048 m = 30.48 cm \\
@@ -93,6 +94,8 @@ Fuerza F & M L T$^{-2}$ & N = kg.m/s$^2$ & lb = slug.pie/s$^2$ & dina \\
  1 Watt = & 1 Joule/s \\
  1 slug = & 32.2 lb \\
  1 lb = & 16 onzas \\
+ 1 $^o$K = & 273 + $^o$C \\
+ 1 $^o$R = & $\frac{9}{5}$ $^o$K \\
 \end{tabular}
 \end{center}
     \end{minipage}
@@ -167,6 +170,7 @@ donde $\tau$ es el esfuerzo de corte, $u$ es la velocidad en funci\'on de $y$ y 
 \begin{tikzpicture}
 \node [mybox] (box){%
     \begin{minipage}{0.45\textwidth}
+    \small
     \begin{enumerate}
     \item En caso de no existir, hacer dibujo con todos los datos del problema. Dibujar las fuerzas que producen el movimiento ($F$) y las fuerzas de corte ($F_c =\tau\ A$), donde $\tau = \mu \frac{du}{dy}$.
     \item Hacer el balance de fuerzas actuantes en la direcci\'on del movimiento. Ej. $F=F_c$ o $T/d=F=F_c$, donde $T$ es torque o par y $d$ es el brazo del torque.
@@ -177,6 +181,25 @@ donde $\tau$ es el esfuerzo de corte, $u$ es la velocidad en funci\'on de $y$ y 
 };
 %------------ Variation of Parameters Header ---------------------
 \node[fancytitle, right=10pt] at (box.north west) {Pasos para resolver problemas ley de viscosidad de Newton};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.45\textwidth}
+    \small
+     $$
+    \frac{P}{\rho} = P V_s = RT
+    $$
+donde $P$ es la presi\'on absoluta del gas, $\rho=1/V_s$ es la densidad o el volumen espec\'ifico, $T$ es la temperatura absoluta, y $R$ es la constante del gas $R=\frac{8312}{M}$ ($\frac{N.m}{kg. ^oK}$) en S.I. y  $R=\frac{1545}{M}$ ($\frac{lb.pie}{slug. ^oR}$) en sistema Ingl\'es, donde $M$ es la masa molecular del gas. 
+    \begin{itemize}
+    \item Proceso isoentr\'opico: $P_1 V_{s1}^k = P_2 V_{s2}^k$
+    \item Proceso isot\'ermico: $P_1 V_{s1} = P_2 V_{s2}$. $T$ no cambia
+    \end{itemize}
+    $k$ es el coeficiente de expansi\'on adiab\'atica. $Ev=kP$ para gases perfectos. Celeridad del sonido en un gas es $c=\sqrt{kRT}$.
+    \end{minipage}
+};
+%------------ Variation of Parameters Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {Gases perfectos};
 \end{tikzpicture}
 
 \end{multicols*}
