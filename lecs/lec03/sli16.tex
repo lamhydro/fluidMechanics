@@ -30,6 +30,7 @@
 \usepackage{amsmath}
 \usepackage[makeroom]{cancel}
 \usepackage[absolute,overlay]{textpos}
+\usepackage{tcolorbox}
 
 %\usepackage{textpos}
 
@@ -85,7 +86,7 @@ Necesaria en la estimaci\'on de fuerzas sobre estructuras hidr\'aulicas curvas c
 \begin{itemize}
 \item compuertas tipo tambor
 \item compuertas radiales
-\item Cara superior tipo par\'abola en presas
+\item cara superior tipo par\'abola en presas
 \end{itemize}
 \begin{textblock*}{10.5cm}(1.0cm,4.3cm) % {block width} (coords)
 \includegraphics[width=\textwidth]{curb1}
@@ -180,7 +181,7 @@ $$
 \begin{frame}{Fuerzas hidroest\'aticas con diferentes fluidos}
 \begin{columns}
 \column{0.4\textwidth}
-Las ecuaciones  vistas hasta le momento son v\'alidas para fluidos de densidad uniforme. Si el fluido esta conformado por capas de fluidos de diferentes densidades, la distribuci\'on lineal de presiones cambia en cada capa. 
+Las ecuaciones  vistas hasta el momento son v\'alidas para fluidos de densidad uniforme. Si el fluido esta conformado por capas de fluidos de diferentes densidades, la distribuci\'on lineal de presiones cambia en cada capa. 
 % Fig 3.39 Cengel
 \column{0.6\textwidth}
 \begin{textblock*}{6cm}(6cm,1.5cm) % {block width} (coords)
@@ -196,7 +197,7 @@ F_R = \sum F_{R,i} = \sum P_{C,i}A_i
 $$
 dondei: 
 \begin{itemize}
-\item $P_{C,i} =  P_0 + \rho_i h_{C,i}$ es la presi\'on en el centroide de la porci\'on de la superficie en el fluido $i$.
+\item $P_{C,i} =  P_0 + \gamma_i h_{C,i}$ es la presi\'on en el centroide de la porci\'on de la superficie en el fluido $i$.
 \item $A_i$ es el \'area de la superficie en ese fluido. El centro de presi\'on de $F_R$ puede ser encontrado calculando la suma de los momentos de cada fuerza $F_{R,i}$ con respecto a un punto determinado (e.g. la superficie de agua).
 \end{itemize}
 $$
@@ -234,17 +235,24 @@ Consideremos una placa de espesor $h$ y are\'a $A$ sumergida en un liquido de de
 $$
 F_B=F_{bottom} - F_{top} = \rho g (s+h)A - \rho gs A = \rho ghA = \rho g V
 $$
-donde $V=hA$ es el volumen de la placa.\\ 
-\begin{block}{}
-Teniendo en cuenta que $\rho g V$ es el peso del liquido cuyo volumen es igual al volumen de la placa, tenemos que \emph{la fuerza de flotaci\'on actuante sobre una placa es igual al peso del liquido desplazado por la placa}. Note que si el fluido es de densidad constante, la fuerza de flotacion es independiente de la profundidad $h$ y  de la densidad de la placa. 
-\end{block}
+%$$
+\begin{equation*}
+%\boxed{F_B = \rho g V}
+\tcbox[nobeforeafter]{\( F_B = \rho g V \)}
+\end{equation*}
+%$$
+donde $V=hA$ es el volumen de la placa. Dicha $F_B$ es el peso del volumen de liquido desplazada que es igual al volumen de la placa.\\ 
+
+%\begin{block}{}
+%Teniendo en cuenta que $\rho g V$ es el peso del liquido cuyo volumen es igual al volumen de la placa, tenemos que \emph{la fuerza de flotaci\'on actuante sobre una placa es igual al peso del liquido desplazado por la placa}. Note que si el fluido es de densidad constante, la fuerza de flotacion es independiente de la profundidad $h$ y  de la densidad de la placa. 
+%\end{block}
 
 \end{frame}
 
 \begin{frame}{Flotaci\'on y estabilidad: Principio de Arqu\'imides}
 \vspace{-0.5cm}
 \begin{block}{Principio de Arqu\'imidez}
-\emph{La fuerza de flotaci\'on actuante sobre un cuerpo de densidad uniforme inmerso en un fluido es igual al peso del fluido desplazado por el cuerpo, y que actual vertical a trav\'ez del centroide del volumen desplazado}, esto es conocido como el \textbf{principio de Arqu\'imides} gracias al matem\'atico Griego Arqu\'imides. 
+\emph{La fuerza de flotaci\'on actuante sobre un cuerpo de densidad uniforme inmerso en un fluido es igual al peso del fluido desplazado por el cuerpo, y act\'ua vertical a trav\'ez del centroide del volumen desplazado}. 
 Para objetos flotantes, el peso del cuerpo debe ser igual a la fuerza de flotaci\'on, la cual es el peso del fluido cuyo volumen es igual a el volumen de la porci\'on sumergida del cuerpo flotante. Esto es:
 $$
 F_B = W \rightarrow \rho g V_{sub} = \rho_{body}gV_{total} \rightarrow \frac{V_{sub}}{V_{total}} = \frac{\rho_{body}}{\rho}
@@ -372,7 +380,7 @@ $$
 $$
 De manera similar, el balance en la direcci\'on $x$ y $y$ es:
 $$
-\delta F_{S,x} =  -\frac{\partial P}{\partial x} dx\ dy\ dz \quad \quad  \delta F_{S,x} =  -\frac{\partial P}{\partial x} dx\ dy\ dz
+\delta F_{S,x} =  -\frac{\partial P}{\partial x} dx\ dy\ dz \quad \quad  \delta F_{S,y} =  -\frac{\partial P}{\partial y} dx\ dy\ dz
 $$
 \end{frame}
 
@@ -395,36 +403,42 @@ $$
 \end{frame}
 
 \begin{frame}{Equilibrio relativo de fluidos en movimiento}
-De acuerdo con la segunda ley de Newton, $\delta \vec{F} = \delta m \cdot \vec{a} = \rho\ dx\ dy\ dz$ y substituyendo en la ecuaci\'on anterior, tenemos que la ecuaci\'on general de movimiento de un fluido que act\'ua como un cuerpo r\'igido (sin esfuerzos cortantes) es:
-$$
-\vec{\nabla}P + \rho g \vec{k} = -\rho \vec{a}
-$$
+De acuerdo con la segunda ley de Newton, $\delta \vec{F} = \delta m \cdot \vec{a} = \rho\ dx\ dy\ dz$ y substituyendo en la ecuaci\'on anterior, tenemos que la \emph{ecuaci\'on general de movimiento de un fluido que act\'ua como un cuerpo r\'igido (sin esfuerzos cortantes)} es:
+\begin{equation*}
+\tcbox[nobeforeafter]{\( \vec{\nabla}P + \rho g \vec{k} = -\rho \vec{a} \)}
+\end{equation*}
+%$$
+%\vec{\nabla}P + \rho g \vec{k} = -\rho \vec{a}
+%$$
 Descomponiendo la ecuaci\'on vectorial, tenemos:
-$$
-\frac{\partial P}{\partial x} = -\rho a_x \quad \frac{\partial P}{\partial y} = -\rho a_y \quad \frac{\partial P}{\partial z} = -\rho (g+ a_z )
-$$
+\begin{equation*}
+\tcbox[nobeforeafter]{\(  \frac{\partial P}{\partial x} = -\rho a_x \quad \frac{\partial P}{\partial y} = -\rho a_y \quad \frac{\partial P}{\partial z} = -\rho (g+ a_z ) \)}
+\end{equation*}
+%$$
+%\frac{\partial P}{\partial x} = -\rho a_x \quad \frac{\partial P}{\partial y} = -\rho a_y \quad \frac{\partial P}{\partial z} = -\rho (g+ a_z )
+%$$
 donde $a_x$, $a_y$ y $a_z$ son las componentes del vector $\vec{a}$ en las direcciones $x$, $y$ y $z$ respectivamente.
 \end{frame}
 
-\begin{frame}{Equilibrio relativo de fluidos en movimiento}
-\small
-\vspace{-0.4cm}
-Existen dos casos especiales:
-\begin{enumerate}
-\item \textbf{Fluido en reposo o en movimiento a velocidad constante:}
-En un fluido en reposo o en movimiento con velocidad constante, $a_x=0$, $a_y=0$ y $a_z=0$, la equaci\'on general se reduce a:
-$$
-\frac{d P}{d z} = -\rho g
-$$
-La ecuaci\'on anterior confirma que en un fluido en reposo, la presi\'on permanece constante en cualquier direcci\'on horizontal y solo varia en la direcci\'on vertical.
-
-\item \textbf{Ca\'ida libre de un elemento fluido}: Para un cuerpo en ca\'ida libre cuya aceleraci\'on es $a_x =0$, $a_y =0$ y $a_z = -g$ y en donde la resistencia del aire despreciable, la ecuaci\'on general se convierte en:
-$$
-\frac{\partial P}{\partial x} =\frac{\partial P}{\partial y} =\frac{\partial P}{\partial z} = 0 \rightarrow P=\text{constant} \rightarrow a_z=-g
-$$
-Si el cuerpo es acelerado hacia arriba (e.g. un elemento de fluido en un ascensor) hasta alcanzar $a_z = g$, el gradiente de presi\'on en direcci\'on $z$, de acuerdo con la ecuaci\'on general, es $\partial P \ \partial z = -2\rho ga$.
-\end{enumerate}
-\end{frame}
+%\begin{frame}{Equilibrio relativo de fluidos en movimiento}
+%\small
+%\vspace{-0.4cm}
+%Existen dos casos especiales:
+%\begin{enumerate}
+%\item \textbf{Fluido en reposo o en movimiento a velocidad constante:}
+%En un fluido en reposo o en movimiento con velocidad constante, $a_x=0$, $a_y=0$ y $a_z=0$, la equaci\'on general se reduce a:
+%$$
+%\frac{d P}{d z} = -\rho g
+%$$
+%La ecuaci\'on anterior confirma que en un fluido en reposo, la presi\'on permanece constante en cualquier direcci\'on horizontal y solo varia en la direcci\'on vertical.
+%
+%\item \textbf{Ca\'ida libre de un elemento de fluido}: Para un cuerpo en ca\'ida libre cuya aceleraci\'on es $a_x =0$, $a_y =0$ y $a_z = -g$ y en donde la resistencia del aire despreciable, la ecuaci\'on general se convierte en:
+%$$
+%\frac{\partial P}{\partial x} =\frac{\partial P}{\partial y} =\frac{\partial P}{\partial z} = 0 \rightarrow P=\text{constant} \rightarrow a_z=-g
+%$$
+%Si el cuerpo es acelerado hacia arriba (e.g. un elemento de fluido en un ascensor) hasta alcanzar $a_z = g$, el gradiente de presi\'on en direcci\'on $z$, de acuerdo con la ecuaci\'on general, es $\partial P \ \partial z = -2\rho ga$.
+%\end{enumerate}
+%\end{frame}
 
 \subsection{Aceleraci\'on en l\'inea recta}
 \begin{frame}{Aceleraci\'on en l\'inea recta}
@@ -459,15 +473,18 @@ $$
 %\begin{textblock*}{4cm}(7.6cm,1cm) % {block width} (coords)
 %\includegraphics[width=\textwidth]{rigi}
 %\end{textblock*}
-Si tomamos como origen el punto $x=0$ y $z=0$ en donde la presi\'on $P=P_0$, la variaci\'on de presi\'on en cualquier punto del fluido es:
-$$
-P = P_0 - \rho a_x x - \rho(g + a_z) z
-$$
+Si tomamos como origen el punto 1 ($x=0$ y $z=0$) en donde la presi\'on $P=P_0$, la \emph{variaci\'on de presi\'on en cualquier punto del fluido} es:
+\begin{equation*}
+\tcbox[nobeforeafter]{\(  P = P_0 - \rho a_x x - \rho(g + a_z) z \)}
+\end{equation*}
+%$$
+%P = P_0 - \rho a_x x - \rho(g + a_z) z
+%$$
 \end{frame}
 
 \begin{frame}{Aceleraci\'on en l\'inea recta}
 \vspace{-0.4cm}
-Si deseamos calcular el c\'ambio de elevaci\'on de la superficie libre del fluido, el c\'ambio de nivel del punto 2 con respecto a 1 de acuerdo a la ecuaci\'on y asumiendo que $P_1 = P_2$ es:
+Si deseamos calcular el c\'ambio de elevaci\'on de la superficie libre del fluido, el c\'ambio de nivel del punto 2 con respecto a 1, y de acuerdo a la ecuaci\'on anterior $P_1 = P_2$, es:
 \vspace{0.5cm}
 \begin{textblock*}{2.8cm}(9.6cm,2.5cm) % {block width} (coords)
 \includegraphics[width=\textwidth]{rigi}
@@ -478,10 +495,14 @@ Si deseamos calcular el c\'ambio de elevaci\'on de la superficie libre del fluid
 \vspace{0.8cm}
 donde $z_s$ indica la localizaci\'on sobre la superficie. 
 
-De manera similar, las superficies con presi\'on constante conocidas como \textbf{isobaras} pueden ser descritas como:
-$$
-\frac{d z_{isobar}}{dx} = -\frac{a_x}{g+a_z} = \text{constante}
-$$
+De manera similar, las superficies con presi\'on constante conocidas como \textbf{isobaras} pueden ser descritas desde $dP = -\rho a_x dx - \rho(g + a_z)dz$ para $dP=0$ como:
+\begin{equation*}
+\tcbox[nobeforeafter]{\( \frac{d z_{isobar}}{dx} = -\frac{a_x}{g+a_z} = \text{constante}
+  \)}
+\end{equation*}
+%$$
+%\frac{d z_{isobar}}{dx} = -\frac{a_x}{g+a_z} = \text{constante}
+%$$
 De acuerdo con lo anterior, las isobaras son superficies paralelas (ver figura) cuya pendiente es $m = \frac{dz_{isobar}}{dx} = -\frac{a_x}{g+ a_z } = \tan \theta$.
 \end{frame}
 \subsection{Rotaci\'on de un contenedor cil\'indrico}
@@ -490,7 +511,7 @@ De acuerdo con lo anterior, las isobaras son superficies paralelas (ver figura) 
 \small
 \begin{columns}
 \column{0.6\textwidth}
-Si hacemos rotar un vaso lleno de agua alrededor de su eje vertical, el agua tiende a apartarse desde el centro hacia las paredes formando una superficie libre c\'oncava; todo esto gracias a la \emph{fuerza centrifuga} (o a la \emph{aceleraci\'on centripeta}). Si analiz\'amos el cilindro de la figura, el cual rota a velocidad angular $\omega$,  cada particula del fluido se mover\'a a la misma velocidad y todo el fluido se mover\'a como un cuerpo r\'igido que no se deforma, una vez se alcance una condici\'on permanente. Para analizar este caso, es conveniente el an\'alisis en coordenadas pol\'ares ($r$, $\theta$, $z$), en donde $z$ represente el eje de rotaci\'on del fluido. Por definici\'on, la aceleraci\'on centripeta es $r \omega^2$ y positiva hacia el centro; note que la aceleraci\'on no depende de $\theta$ ya que es sim\'etrica con respecto a $z$. 
+Si hacemos rotar un vaso lleno de agua alrededor de su eje vertical, el agua tiende a apartarse desde el centro hacia las paredes formando una superficie libre c\'oncava; todo esto gracias a la \emph{fuerza centrifuga}. Si analiz\'amos el cilindro de la figura, el cual rota a velocidad angular $\omega$,  cada part\'icula del fluido se mover\'a a la misma velocidad y todo el fluido se mover\'a como un cuerpo r\'igido que no se deforma, una vez se alcance una condici\'on permanente. Para analizar este caso, es conveniente el an\'alisis en coordenadas pol\'ares ($r$, $\theta$, $z$), en donde $z$ represente el eje de rotaci\'on del fluido. Por definici\'on, la aceleraci\'on centripeta es $r \omega^2$ y positiva hacia el centro; note que la aceleraci\'on no depende de $\theta$ ya que es sim\'etrica con respecto a $z$. 
 \column{0.4\textwidth}
 \vspace{-0.4cm}
 % Fig 3.59 Cengel
