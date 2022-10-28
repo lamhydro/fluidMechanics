@@ -1,0 +1,312 @@
+\documentclass{article}
+\usepackage[landscape]{geometry}
+\usepackage{url}
+\usepackage{multicol}
+\usepackage{amsmath}
+\usepackage{esint}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathmorphing}
+\usepackage{amsmath,amssymb}
+
+\usepackage{colortbl}
+\usepackage{xcolor}
+\usepackage{mathtools}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\setlist[itemize]{align=parleft,left=0pt..1em}
+\makeatletter
+
+\newcommand*\bigcdot{\mathpalette\bigcdot@{.5}}
+\newcommand*\bigcdot@[2]{\mathbin{\vcenter{\hbox{\scalebox{#2}{$\m@th#1\bullet$}}}}}
+\makeatother
+
+\title{130 Cheat Sheet}
+%\usepackage[brazilian]{babel}
+\usepackage[utf8]{inputenc}
+
+\advance\topmargin-.8in
+\advance\textheight3in
+\advance\textwidth3in
+\advance\oddsidemargin-1.5in
+\advance\evensidemargin-1.5in
+\parindent0pt
+\parskip2pt
+\newcommand{\hr}{\centerline{\rule{3.5in}{1pt}}}
+%\colorbox[HTML]{e4e4e4}{\makebox[\textwidth-2\fboxsep][l]{texto}
+\begin{document}
+
+\begin{center}{\huge{\textbf{Resume No.3: Cinem\'atica y Din\'amica}}}\\
+\end{center}
+\begin{multicols*}{2}
+
+\tikzstyle{mybox} = [draw=black, fill=white, very thick,
+    rectangle, rounded corners, inner sep=10pt, inner ysep=10pt]
+\tikzstyle{fancytitle} =[fill=black, text=white, font=\bfseries]
+
+%------------ Heating ---------------
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.475\textwidth}
+    \small
+\begin{itemize}
+\item Producto escalar o punto $\vec{A} \cdot \vec{B}$
+$$
+\vec{A} \cdot \vec{B} = AB\cos \alpha = a_x b_x + a_y b_y + a_z b_z 
+$$
+donde $\vec{A}=a_x \vec{i}+a_y \vec{j}+a_z \vec{k}$ y $\vec{B}=b_x \vec{i}+b_y \vec{j}+b_z \vec{k}$, $A$ y $B$ son la norma de $\vec{A}$ y $\vec{B}$, respectivamente, y $\alpha$ es el \'angulo entre $\vec{A}$ y $\vec{B}$.  
+
+\item Campo de velocidades
+$$
+\vec{U} = u\vec{i}+v\vec{j}+w\vec{k}
+$$
+donde $u$, $v$ y $w$ son las componentes de la velocidad en $x$, $y$ y $z$, respectivamente, y $\vec{i}$, $\vec{j}$ y $\vec{k}$ son vectores unitarios en $x$, $y$ y $z$, respectivamente. Note que $u$, $v$ y $w$ son $f(x,y,z,t)$.
+\item Operador nabla ($\vec{\nabla}$)
+$$
+\vec{\nabla} = \frac{\partial}{\partial x}\vec{i}+\frac{\partial}{\partial y}\vec{j}+\frac{\partial}{\partial z}\vec{k}
+$$
+\vspace{-0.6cm}
+\item Operador Laplaciano ($\nabla^2$)
+$$
+\vec{\nabla} \cdot \vec{\nabla}= \frac{\partial^2}{\partial x^2}+\frac{\partial ^2}{\partial y^2}+\frac{\partial^2}{\partial z^2}
+$$
+\vspace{-0.6cm}
+\item Divergencia de un campo escalar $\phi$
+$$
+\vec{\nabla}\phi = \frac{\partial \phi}{\partial x}\vec{i}+\frac{\partial \phi}{\partial y}\vec{j}+\frac{\partial \phi}{\partial z}\vec{k}
+$$
+\vspace{-0.6cm}
+\item Divergencia de un campo vectorial $\vec{U}$
+$$
+\vec{\nabla} \cdot \vec{U} = \frac{\partial u}{\partial x}+\frac{\partial v}{\partial y}+\frac{\partial w}{\partial z}
+$$
+\vspace{-0.6cm}
+\item Rotacional de $\vec{U}$
+$$
+\nabla \times \vec{U} = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k}\\ \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z}\\ u & v & w \end{vmatrix}= \left( \frac{\partial w}{\partial y} - \frac{\partial v}{\partial z}\right)\vec{i} + \left( \frac{\partial w}{\partial x} - \frac{\partial u}{\partial z}\right)\vec{j} + \left( \frac{\partial v}{\partial x} - \frac{\partial u}{\partial y}\right)\vec{k}
+$$
+\vspace{-0.4cm}
+\item L\'inea de corriente: El vector $\vec{U}$ es tangente a la l\'inea de corriente en cada punto. La ecuaci\'on de la l\'inea de corriente es:
+$$
+\frac{dx}{u}=\frac{dy}{v}=\frac{dz}{w}
+$$
+\vspace{-0.7cm}
+\item M\'etodos para analizar un flujo:
+\begin{enumerate}
+    \item M\'etodo de Lagrange: Sigue cada part\'icula o \emph{sistema} de flujo en el espacio, por lo tanto su posici\'on es funci\'on del tiempo: $x(x_0 , y_0, z_0 , t)$, $y(x_0 , y_0, z_0 , t)$ y $z(x_0 , y_0, z_0 , t)$, donde $(x_0, y_0, z_0)$ es un punto inicial.
+    \item M\'etodo de Euler: Establece un punto o \emph{volumen de control} fijo en el espacio en donde se observan variables en el tiempo como la velocidad o la aceleraci\'on.
+\end{enumerate}
+Para relacionar los dos m\'etodos, es necesario obtener para cada part\'icula las funciones $x(t)$, $y(t)$ y $z(t)$, a partir:
+$$
+u=\frac{dx}{dt} \quad v=\frac{dy}{dt} \quad w=\frac{dz}{dt}  
+$$
+integrando para $x$, $y$ y $z$ , partiendo de valores conocidos de $u$, $v$ y $w$ (M. Euler) y de un punto $(x_0, y_0, z_0)$ para $t=t_0$.
+\end{itemize}
+    \end{minipage}
+};
+%------------ Heating Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {Propiedades cinem\'aticas};
+\end{tikzpicture}
+
+%------------ Mixing ---------------
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.475\textwidth}
+    \small
+    \begin{itemize}
+\item Vector aceleraci\'on $\vec{a}=a_x \vec{i}+a_y \vec{j}+a_z \vec{k}$
+$$
+\vec{a}=\frac{d\vec{U}}{dt}=\frac{\partial \vec{U}}{\partial t}+u\frac{\partial \vec{U}}{\partial x}+v\frac{\partial \vec{U}}{\partial y}+w\frac{\partial \vec{U}}{\partial z}=\frac{\partial \vec{U}}{\partial t} + (\vec{\nabla} \cdot \vec{U})\vec{U}
+$$
+\vspace{-0.6cm}
+\item Tipos de flujo
+\begin{enumerate}
+    \item Flujo \emph{permanente} o \emph{no permanente}: Para el primero, el caudal es constante en el tiempo. Ejemplo: en una secci\'on de una tuber\'ia, la velocidad no cambia en el tiempo.
+    \item Flujo \emph{uniforme} o \emph{no uniforme}: Para el primero, la velocidad no cambia en el espacio para un instante de tiempo.
+    \item Flujo \emph{compresible} o \emph{incompresible}: Para el primero, la densidad cambia en el espacio y/o en el tiempo (e.g. gases).
+    \item Flujo \emph{laminar} o \emph{turbulento}: El flujo laminar es un flujo en "laminas" que siguen trayect\'orias rectil\'ineas donde $Re < 2000$. El flujo turbulento es un flujo ca\'otico y err\'atico donde $Re > 4000$. $Re = 4\bar{U}R_H/\nu$ es el n\'umero de Reynolds, donde $\bar{U}$ es la velocidad media, $R_H = A/P$ es el radio hidr\'aulico, donde $A$ es el \'area y $P$ es el per\'imetro mojado, y $\nu$ es la viscosidad cinem\'atica.  
+    \item Flujo unidimensional (1D) (e.g. en $x$), flujo bidimensional (2D) (e.g. en $x$, $y$) y flujo tridimensional (3D) (e.g. en $x$, $y$ y $z$).  
+\end{enumerate}
+\item Flujo volum\'etrico o caudal ($Q$): Cantidad de volumen de fluido que pasa a trav\'es de una superficie $A$ por unidad de tiempo.
+$$
+Q=\int_A \vec{U} \cdot \vec{dA} = \int_A (\vec{U} \cdot \vec{n}) dA = \int_A U\ dA \cos \alpha
+$$
+donde $\vec{n}$ es el vector unitario normal a $dA$ y $\alpha$ es el \'angulo entre $\vec{n}$ y $\vec{U}$.
+\item Flujo m\'asico ($\dot{m}$): Cantidad de masa ($m$) de fluido que pasa a trav\'es de una superficie $A$ por unidad de tiempo.
+$$
+\dot{m}=\int_A \rho (\vec{U} \cdot \vec{dA}) = \int_A \rho (\vec{U} \cdot \vec{n}) dA = \int_A \rho U\ dA \cos \alpha
+$$
+donde $\rho$ es la densidad del fluido. Si la velocidad en la secci\'on es uniforme y $A$ es constante, $Q=UA$ y $\dot{m}=\rho U A$.
+
+\end{itemize}
+    \end{minipage}
+};
+%------------ Mixing Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {Propiedades cinem\'aticas};
+\end{tikzpicture}
+
+%------------ Inner Product Spaces ---------------
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.475\textwidth}
+    \small
+Unif\'ica la aproximaci\'on Lagrangiana (e.g. movimiento de un sistema o part\'icula en el espacio) y la aproximaci\'on Euleriana (e.g. flujo a trav\'es de un volumen de control). Determina los cambios temporales de una propiedad extensiva (sea un escalar o un campo vectoria) en el tiempo.
+$$
+\frac{dN}{dt} = \oiint_{S.C.} \eta \rho (\vec{U}\cdot \vec{dA}) + \frac{\partial}{\partial t} \iiint_{V.C.} \eta \rho dv
+$$
+donde $N$ es una \emph{propiedad extensiva} cualquiera $N=\iiint_{sistema}\eta \rho dv$ para un tiempo $t$, $\eta$ es la \emph{propiedad intensiva} de $N$ por unidad de masa, $V.C.$ es el volumen de control y $S.C.$ es la superficie del $V.C.$. El teorema dice que el cambio de $N$ en el tiempo es igual a la suma de flujo neto de $N$ a trav\'es de $S.C.$ y  al cambio temporal de $N$ dentro de $V.C.$
+
+    \end{minipage}
+};
+%------------ Inner Product Space Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {Teorema de transporte de Reynolds};
+\end{tikzpicture}
+
+%------------ Gram-Schmidt Content ---------------
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.475\textwidth}
+    \small
+    \begin{itemize}
+        \item \textbf{Continuidad en un volumen de control (forma integral)}: Del teorema de transporte de Reynolds, si $N = m$, entonces $\eta = 1$. Del principio de conservaci\'on de la masa ($m$), esta no cambia en el tiempo, por tanto, $\frac{dm}{dt}=0$. Entonces:
+        $$
+        \oiint_{S.C.} \rho (\vec{U}\cdot \vec{dA}) =- \frac{\partial}{\partial t} \iiint_{V.C.} \rho dv
+        $$
+        Esto significa que el flujo masico neto de salida a trav\'es de $S.C.$ es igual a la t\'asa de decrecimiento de la  masa dentro de $V.C.$. 
+        \item \textbf{Continuidad en un punto (forma diferencial)}
+        $$
+        \frac{\partial (\rho u)}{\partial x}+\frac{\partial (\rho v)}{\partial y}+\frac{\partial (\rho w)}{\partial z}=\frac{\partial \rho}{\partial t}
+        $$
+    \end{itemize}
+    Si el flujo es \emph{permanente}, el termino de la derecha en ambas ecuaciones se elimina. Si el flujo es \emph{incompresible}, $\rho$ se elimina tambi\'en.
+    \end{minipage}
+};
+%------------ Gram-Schmidt Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {Conservaci\'on de la masa};
+\end{tikzpicture}
+%------------ Variation of Parameters Content ---------------------
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.475\textwidth}
+    \small
+\begin{itemize}
+    \item \textbf{Flujo potencial}: Existe una \emph{funci\'on de potencial} $\phi$ tal que:
+    $$
+    u=\frac{d\phi}{dx} \quad v=\frac{d\phi}{dy} \quad w=\frac{d\phi}{dz}
+    $$
+    por lo tanto $\vec{\nabla}\times \vec{U} = 0$, el flujo potencial es \emph{irrotacional}.
+    \item \textbf{Funci\'on de corriente} (en 2D): Para que la ecuaci\'on de continuidad para flujo permanente e incompresible se cumpla, debe existir una funci\'on de corriente $\psi$ tal que:
+    $$
+    u=\frac{\partial \psi}{\partial y} \quad v=-\frac{\partial \psi}{\partial x}
+    $$
+    De la definici\'on de l\'inea de corriente, $\psi$ es constante a lo largo de una l\'inea de corriente. Por otro lado, el caudal $Q$ entre dos l\'ineas de corriente 1 y 2, es:
+    $$
+    Q=\psi_2 - \psi_1
+    $$
+    Si el flujo es compresible:
+    $$
+    \rho u=\frac{\partial \psi}{\partial y} \quad \rho v=-\frac{\partial \psi}{\partial x}
+    $$
+    por lo tanto el flujo m\'asico es:
+    $$
+    \rho Q = \psi_2 - \psi_1
+    $$
+    
+\end{itemize}
+    \end{minipage}
+};
+%------------ Variation of Parameters Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {Flujo potencial y funci\'on de corriente};
+\end{tikzpicture}
+
+%------------ Variation of Parameters Content ---------------------
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.475\textwidth}
+    \small
+Del teorema de transporte de Reynolds aplicado a la cantidad extensiva energ\'ia $E$ cuya propiedad intensiva es $e$ ($E$ por unidad de masa), y teniendo en cuenta la \emph{primera ley de la termodin\'anica} que establece que la tasa de cambio de $E$ $\frac{dE}{dt}=\frac{dQ}{dt}-\frac{dW}{dt}$ donde $\frac{dQ}{dt}$ es la tasa de calor transferido al sistema y $\frac{dW}{dt} = \left( \frac{dW}{dt}\right)_{meca} - \left( \frac{dW}{dt}\right)_{esf. vis}$ es la tasa de trabajo realizado por un instrumento mec\'anico y por los esfuerzos viscosos sobre el sistema, tenemos:
+\vspace{-0.1cm}
+\begin{equation*}
+\begin{split}
+&\frac{dQ}{dt}-\left( \frac{dW}{dt}\right)_{meca} + \left( \frac{dW}{dt}\right)_{esf. vis}=\frac{dE}{dt}= \\ &\oiint_{S.C.} \left(\hat{h}+\frac{V^2}{2}+gz \right)\rho (\vec{U}\cdot \vec{dA}) + \frac{\partial}{\partial t} \iiint_{V.C.} \left(\hat{u}+\frac{V^2}{2}+gz \right) \rho dv
+\end{split}
+\end{equation*}
+    \end{minipage}
+};
+%------------ Variation of Parameters Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {Conservaci\'on de la energ\'ia};
+\end{tikzpicture}
+
+%------------ Mixing ---------------
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.475\textwidth}
+    \small
+donde $\hat{h} = \hat{u} + \frac{p}{\rho}$ es la entalp\'ia, $\hat{u}$ es la energia interna debido a la acci\'on molecular, $p$ es la presi\'on, $\rho$ es la densidad del fluido, $V$ es la velocidad media y $z$ es la altura del sistema.
+
+    \end{minipage}
+};
+%------------ Mixing Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {Conservaci\'on de la energ\'ia};
+\end{tikzpicture}
+
+
+%------------ Mixing ---------------
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.475\textwidth}
+    \small
+Partiendo de la ecuaci\'on general de conservaci\'on de la energ\'ia para flujo 1D, permanente e incompresible y dividiendo por el peso del fluido, dicha ecuaci\'on aplicada a un V.C. con una secci\'on de entrada 1 y una de salida 2 se convierte en:
+\vspace{-0.2cm}
+$$
+\frac{p_1}{\gamma}+\frac{\hat{u}_1}{g}+\frac{V_1^2}{2g}+z_1= \frac{p_2}{\gamma}+\frac{\hat{u}_2}{g}+\frac{V_2^2}{2g}+z_1-h_q+h_m - h_v
+\vspace{-0.2cm}
+$$
+donde $h_q$, $h_m$ y $h_v$ son la cabeza de energ\'ia (en unidades de longitud) de calor adicionado al sistema y del trabajo realizado por una m\'aquina y por los esfuerzos viscosos, respectivamente.\\ 
+En un sistema hidr\'aulico (e.g. tuber\'ia a presi\'on), los terminos $\frac{\hat{u}}{g}$ y $h_v$ son despreciables. Si en ese sistema el termino $-h_q + h_m$ equivale a la energ\'ia que se gana y se pierde entre la secci\'on 1 y 2, la ecuaci\'on anterior se convierte en la \emph{ecuaci\'on de Bernoulli}:
+\vspace{-0.2cm}
+$$
+\frac{p_1}{\gamma}+\frac{V_1^2}{2g}+z_1= \frac{p_2}{\gamma}+\frac{V_2^2}{2g}+z_2-h_f - h_b +h_t 
+\vspace{-0.4cm}
+$$
+\vspace{-0.2cm}
+donde:
+\begin{itemize}
+    \item $\frac{p}{\gamma}$: Cabeza de presi\'on (\emph{Energ\'ia del flujo} por unidad de peso).
+    \item $\frac{V^2}{2g}$: Cabeza de velocidad (\emph{Energ\'ia cin\'etica} por unidad de peso).
+    \item $z$: Cabeza de posici\'on (\emph{Energ\'ia potencial} por unidad de peso).    
+    \item $h_f$: \emph{Perdidas de cabeza de energ\'ia por fricci\'on y/o por accesorios}.
+    \item $h_b$: \emph{Cabeza de energ\'ia adicionada al sistema por una bomba}.
+    \item $h_t$: \emph{Cabeza de energ\'ia sustraida del sistema por una turbina}.
+\end{itemize}
+La \emph{potencia hidr\'aulica} $P=\gamma H Q$, donde $H$ es equivalente a $h_b$ o $h_t$. La \emph{potencia nominal} $P_a = \gamma H Q \eta$ donde $\eta$ es la eficiencia de la bomba o turbina.\\
+Debido a la distribuci\'on no uniforme de la velocidad en una secci\'on transversal de flujo, $\frac{V^2}{2g}$ se debe corregir multiplicandola por el \emph{coeficiente de Coriolis} $\alpha = \frac{1}{A}\int_A \left( \frac{u}{V} \right )^3 dA $
+donde $u$ es la funci\'on de velocidad en la secci\'on transversal y $V=\frac{Q}{A}$ es la velocidad media.\\
+La ecuaci\'on de Bernoulli puede ser visualizada gr\'aficamente a trav\'es de la \emph{L\'inea de Energ\'ia} (LE) y de la \emph{L\'inea de Gradiente Hidr\'aulico} (LGH), en donde en cada secci\'on del flujo $LE=\frac{p}{\gamma}+\frac{V^2}{2g}+z$ (energ\'ia total) y $LGH=\frac{p}{\gamma}+z$.\\
+Algunas aplicaciones de la ecuaci\'on de Bernoulli para determinar el caudal son:
+\vspace{-0.2cm}
+\begin{itemize}
+    \item \textbf{tubo Pitot}: Tubo en forma de L colocado en contraflujo para determinar la velocidad $u_1^i$ justo antes del tubo (secci\'on 1) en un punto $i$ de la secci\'on. Aplicando Ec. de Bernoulli entre 1 y 2 (secci\'on del tubo Pitot), se tiene:
+    \vspace{-0.2cm}
+    $$
+    u_1^i  = \sqrt{2g \left(\frac{p_2}{\gamma}-\frac{p_1}{\gamma}\right)}
+    \vspace{-0.2cm}
+    $$
+    El caudal $Q=\sum_{i=1}^n u_1^i A_i$ donde $A_i$ es una porci\'on de area y $n$ es el \# de puntos.
+    \item \textbf{tubo Venturi}: Tubo con una reducci\'on brusca y una expansi\'on gradual de la secci\'on. Aplicando la Ec. de Bernoulli y la ecuaci\'on de continuidad ($Q_1=Q_2$), la velocidad en la contracci\'on (secci\'on 2) es:
+    \vspace{-0.6cm}
+    $$
+    V_2 =C_v \sqrt{\frac{2g \left( \frac{p_1}{\gamma}-\frac{p_2}{\gamma} + z_1 - z_2 \right)}{\left(1-\left(\frac{A_2}{A_1}\right)^2\right)}}
+    \vspace{-0.2cm}
+    $$
+    donde $C_v$ es el \emph{coeficiente de contracci\'on del Venturi}
+\end{itemize}
+
+    \end{minipage}
+};
+%------------ Mixing Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {Ecuaci\'on de Bernoulli};
+\end{tikzpicture}
+
+\end{multicols*}
+\end{document}
