@@ -1,0 +1,291 @@
+\documentclass{article}
+\usepackage[landscape]{geometry}
+\usepackage{url}
+\usepackage{multicol}
+\usepackage{amsmath}
+\usepackage{esint}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathmorphing}
+\usepackage{amsmath,amssymb}
+
+\usepackage{colortbl}
+\usepackage{xcolor}
+\usepackage{mathtools}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\setlist[itemize]{align=parleft,left=0pt..1em}
+\makeatletter
+
+\newcommand*\bigcdot{\mathpalette\bigcdot@{.5}}
+\newcommand*\bigcdot@[2]{\mathbin{\vcenter{\hbox{\scalebox{#2}{$\m@th#1\bullet$}}}}}
+\makeatother
+
+\title{130 Cheat Sheet}
+%\usepackage[brazilian]{babel}
+\usepackage[utf8]{inputenc}
+
+\advance\topmargin-.8in
+\advance\textheight3in
+\advance\textwidth3in
+\advance\oddsidemargin-1.5in
+\advance\evensidemargin-1.5in
+\parindent0pt
+\parskip2pt
+\newcommand{\hr}{\centerline{\rule{3.5in}{1pt}}}
+%\colorbox[HTML]{e4e4e4}{\makebox[\textwidth-2\fboxsep][l]{texto}
+\begin{document}
+
+\begin{center}{\huge{\textbf{Resume No.4: Conservaci\'on de Momentum y An\'alisis Dimensional}}}\\
+\end{center}
+\begin{multicols*}{2}
+
+\tikzstyle{mybox} = [draw=black, fill=white, very thick,
+    rectangle, rounded corners, inner sep=10pt, inner ysep=10pt]
+\tikzstyle{fancytitle} =[fill=black, text=white, font=\bfseries]
+
+
+%------------ Gram-Schmidt Content ---------------
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.475\textwidth}
+    \small
+    \begin{itemize}
+        \item \textbf{Momentum Lineal}: Del teorema de transporte de Reynolds, si la propiedad extensiva $N = m\vec{U}$ (cantidad de movimiento), entonces $\eta = \vec{U}$.  Entonces:
+        \vspace{-0.2cm}
+        $$
+        \frac{d (m\vec{U})}{dt}=\oiint_{S.C.} \vec{U} \rho (\vec{U}\cdot \vec{dA}) + \frac{\partial}{\partial t} \iiint_{V.C.} \vec{U} \rho dv
+        $$
+        donde $\vec{U}$ es el vector velocidad del flujo, $m$ es la masa del fluido, $\rho$ es la densidad del fluido en el V.C. Por lo que la tasa de cambio de la cantidad de movimiento es igual al flujo de cantidad de movimiento a travez de la S.C. m\'as la tasa de cambio de la cantidad de movimiento interna en el V.C. Si el flujo es permanente y teniendo en cuenta que $\frac{d (m\vec{U})}{dt} = \sum F_{ext}$, donde $F_{ext}$ son las fuerzas actuantes sobre el volumen de control, se tiene:
+        \vspace{-0.2cm}
+        $$
+        \sum F_{ext}=\oiint_{S.C.} \vec{U} \rho (\vec{U}\cdot \vec{dA})
+        $$
+        
+        Si el flujo es 1D y uniforme, las fuerzas externas en direcci\'on $i = {x,y,z}$, son iguales al momentum entrante ($out$) menos el momentum saliente ($in$):
+        \vspace{-0.2cm}
+        $$
+        \sum F_{ext}^i=\sum (\rho Q V)_{out}^i - \sum (\rho Q V)_{in}^i 
+        $$
+        \vspace{-0.3cm}
+        \item \textbf{Fuerza sobre estructuras}: Partiendo de la ecuaci\'on anterior, si se tiene un V.C. comprendido entre una entrada y una salida de flujo y si el flujo m\'asico $\rho Q$ se conserva, la ecuacion queda:
+        \vspace{-0.2cm}
+        $$
+        \sum F_{ext}^i=\rho Q (V_{out}^i - V_{in}^i) 
+        $$
+        donde $\sum F_{ext}^i$ son las fuerzas externas actuantes (e.g. presiones hidroest\'aticas, peso del fluido) incluyento la reacci\'on $R^i$ de la estructura. $V_{out}^i$ y $V_{in}^i$ son positivas en la direcci\'on positiva de $i$ por lo que el signo cambia dependiendo de la direcci\'on. 
+        
+        \item \textbf{Fuerza sobre alabes}:Note que en el caso de $alabes$ en movimiento con velocidad $C$, la ecuaci\'on queda:
+        \vspace{-0.2cm}
+         $$
+        \sum F_{ext}^i=\rho (Vch - C)A_{ch} \left( (V_{ch} - C)_{out}^i - (V_{ch} - C)_{in}^i \right) 
+        $$
+        donde $V_{ch}$ es la velocidad del chorro que impacta el alabe, $A_{ch}$ es el \'area de la secci\'on del orificio del chorro.
+    \end{itemize}
+    \end{minipage}
+};
+%------------ Gram-Schmidt Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {Conservaci\'on del Momentum};
+\end{tikzpicture}
+
+%------------ Variation of Parameters Content ---------------------
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.475\textwidth}
+    \small
+ La sumatoria de todos los momentos externos con respecto a un origen $O$ ($\sum M_O = \vec{r} \times \vec{F}$) que actuan sobre la masa de fluido de un V.C. es igual:
+ \vspace{-0.2cm}
+ $$
+ \sum M_O = \sum \vec{r} \times \vec{F} = \frac{d(\vec{r} \times m\vec{U})}{dt}
+ $$
+ reemplazando en el \emph{Teorema de Transporte de Reynolds}, tenemos:
+ \vspace{-0.2cm}
+ $$
+        \sum M_O=\oiint_{S.C.} (\vec{r} \times \vec{U}) \rho (\vec{U}\cdot \vec{dA}) + \frac{\partial}{\partial t} \iiint_{V.C.} (\vec{r}\times\vec{U}) \rho dv
+        \vspace{-0.2cm}
+        $$
+
+donde $\vec{r}$ es el vector posici\'on desde $O$ hasta la posici\'on de $\vec{F}$ o $\vec{U}$, conocido como el brazo de la fuerza.
+Para flujo permanente, 1D y uniforme, la ecuaci\'on queda:
+\vspace{-0.2cm}
+$$
+        \sum M_O=\sum(\vec{r}\times \vec{U})_{out} (\rho Q))_{out} -\sum(\vec{r}\times \vec{U})_{in} (\rho Q))_{in}
+        \vspace{-0.2cm}
+        $$
+
+        Si el rotor gira con una velocidad angular $\omega$ en sentido negativo, $\vec{U} = V - r\omega $, donde $V$ es la magnitud de $\vec{U}$. 
+        
+    \end{minipage}
+};
+%------------ Variation of Parameters Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {Momento de la cantidad de movimiento};
+\end{tikzpicture}
+
+
+%------------ Variation of Parameters Content ---------------------
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.475\textwidth}
+    \small
+Un resalto hidr\'aulico (RH) es un fen\'omeno del flujo a superficie libre que se presenta cuando hay un cambio de r\'egimen \emph{supercr\'itico} a \emph{subcr\'itico}. Si consideramos un V.C. en un canal comprendido entre la secci\'on de entrada (1) al RH y la secci\'on de salida (2) y si hacemos un balance de fuerzas en el volumen de control, tenemos:
+$$
+\sum F_x = F_1 - F_2 = \rho Q \left( Vx_2 -  Vx_1 \right)
+$$
+donde $F_1 = \gamma A_1 \bar{h}_1$ y $F_2 = \gamma A_2 \bar{h}_2$ son las fuerzas hidroest\'aticas en la secci\'on 1 y 2, respectivamente, $A$ es el area de la secci\'on transversal y $\bar{h}$ es la profundidad al centroide de la secci\'on. Reemplazando y dividiendo por $\gamma$:
+$$
+A_1 \bar{h}_1 + \frac{Q^2}{gA_1} = A_2 \bar{h}_2 + \frac{Q^2}{gA_2}
+$$
+Esta ecuaci\'on demuestra que la cantidad de movimiento se conserva en un resalto, por lo que la \emph{Fuerza espec\'ifica} es igual aguas arriba (1) y aguas abajo (2) del resalto $F_{s1} = F_{s2}$. 
+$$
+F_s = A \bar{h} + \frac{Q^2}{gA}
+$$
+Note que en un resalto hidr\'aulico existen p\'erdidas de energ\'ia ($h_f$) por lo que $H_1 - H_2 = h_f$, donde $H=z+\frac{P}{\gamma}+\frac{V^2}{2g}$ es la energ\'ia total en la secci\'on. Si el canal es de secci\'on rectangular y ancho $b$ y profundidad $y$, $F_s = \frac{by^2}{2} + \frac{QV}{g}$, podemos llegar a la siguiente expresion:
+$$
+\frac{y_2}{y_1} = \frac{1}{2}\left[ \sqrt{1+8F_{R_1}^2 } -1 \right]
+$$
+donde el \emph{N\'umero de Froude} es:
+$$
+F_R = \frac{V}{\sqrt{gy}}
+$$
+Si $F_R > 1$ el flujo es \emph{supercr\'itico}, si $F_R < 1$ el flujo es \emph{subcr\'itico} y si $F_R \approx 1$ el flujo es \emph{cr\'itico} 
+    \end{minipage}
+};
+%------------ Variation of Parameters Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {Resalto Hidr\'aulico};
+\end{tikzpicture}
+
+%------------ Variation of Parameters Content ---------------------
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.475\textwidth}
+    \small
+El an\'alisis dimensional es una t\'ecnica matem\'atica que hace uso del estudio de las dimensiones permitiendo predecir parametros que intervienen en un proceso f\'isico. Constituye las bases para las leyes de similitud o semejanza. En mec\'anica de fluidos cualquier variable f\'isica se puede expresar en t\'erminos de: masa $M$, longitud $L$ y tiempo $T$. En terminos generales, cualquier cantidad f\'isica $X$ se puede expresar como:
+$$
+X=M^{\alpha}L^{\beta} T^{\gamma}
+$$
+Si $\alpha = \beta = \gamma =0$ $X$ es adimensional; si $\alpha = \gamma = 0$ y $\beta \ne 0$ $X$ est\'a en t\'erminos de $L$ y es una \emph{magnitud geom\'etrica}; $\alpha = 0$, $\beta \ne 0$ y $\gamma \ne 0$ $X$ est\'a en t\'erminos de $L$ y $T$ y es una \emph{magnitud cinem\'atica} y si $\alpha\  \beta\ \gamma \ne 0$ $X$ est\'a en t\'erminos de $L$, $T$ y $M$ y es una \emph{magnitud din\'amica}.
+\begin{itemize}
+\item \textbf{Ecuaciones homog\'eneas dimensionalmente}: Una ecuaci\'on es dimensionalmente homog\'enea cuando las dimensiones f\'isicas de las variables a la izquierda de la igualdad de la ecuaci\'on son identicas a las dimensiones f\'isicas de los t\'erminos a la derecha de tal igualdad.  Ejemplo, la \emph{ecuaci\'on de Torricelli} $V=\sqrt{2gh}$. 
+\end{itemize}
+    \end{minipage}
+};
+%------------ Variation of Parameters Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {An\'alisis Dimensional};
+\end{tikzpicture}
+
+%------------ Mixing ---------------
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.475\textwidth}
+    \small
+
+\begin{itemize}
+    \item \textbf{Parametros adimensionales}: Sirven para agrupar variables f\'isicas de tal forma que se forman relaciones sin dimensiones. Se demominan con la letra $\Pi$.
+    \begin{enumerate}
+        \item \textit{N\'umero de Reynolds} ($Re$): Relaciona las fuerzas de inercia ($F_i$) con las fuerzas cortantes debido a la viscosidad o a la turbulencia ($F_{\nu}$).
+         \vspace{-0.2cm}
+        $$
+        Re = \frac{F_i}{F_{\nu}} = \frac{ma}{\tau A} = \frac{\rho V L}{\mu}
+        $$
+        donde $L$ es una longitud caracter\'istica.
+        \item \textit{N\'umero de Froude} ($F_R$): Relaciona las fuerzas de inercia ($F_i$) con las fuerzas de gravedad ($F_g$).
+         \vspace{-0.2cm}
+        $$
+        F_R = \sqrt{\frac{F_i}{F_g}} = \sqrt{\frac{ma}{mg}} =\frac{V}{\sqrt{gL}}
+        $$
+        \item \textit{N\'umero de Match} ($M_a$): Los fluidos compresibles se pueden caracterizar por un parametro que relaciona las fuerzas de inercia ($F_i$) y las fuerzas el\'asticas ($F_e$).
+         \vspace{-0.2cm}
+        $$
+        M_a = \sqrt{\frac{F_i}{F_e}} = \sqrt{\frac{ma}{K_e A}}=\frac{V}{\sqrt{K_e /\rho}} = \frac{V}{C}  
+        $$
+        donde $K_e$ es el modulo de elasticidad volum\'etrico y $C=\sqrt{K_e / \rho}$ es la velocidad de propagaci\'on del sonido.
+        \item \textit{N\'umero de Euler} ($E_u$): Relaciona las fuerzas de inercia ($F_i$) con las fuerzas de presi\'on ($F_p$). Es importante en problemas de cavitaci\'on.
+        $$
+        E_u = \sqrt{\frac{F_i}{F_p}} = \sqrt{\frac{ma}{\Delta p A}} =\frac{\rho V^2}{\Delta p}
+        $$
+        \item \textit{N\'umero de Weber} ($E_u$): Relaciona las fuerzas de inercia ($F_i$) con las fuerzas de tensi\'on superficial ($F_{\sigma}$).
+        $$
+        W_e = \frac{F_i}{F_{\sigma}} = \frac{ma}{\sigma L} =\frac{\rho L V^2}{\sigma}
+        $$
+        donde $\sigma$ es la fuerza de tensi\'on superficial debido al fluido por unidad de longitud.
+    \end{enumerate}
+    \item \textbf{Teorema $\Pi$ de Buckingham}: \textit{Si una ecuaci\'on con $n$ variables es dimensionalmente homog\'enea con respecto a $m$ dimensiones, esta ecuaci\'on se puede expresar como una relaci\'on entre un m\'inimo de $n-m$ grupos adimensionales ($\Pi$) independientes.}
+    Para obtener los parametros $\Pi$ se propone:
+    \begin{enumerate}
+        \item Listar las $n$ variables que intervienen en el fen\'omeno.
+        \item Representar las variables en funci\'on de sus dimensiones $M$, $L$ y $T$.
+        \item Seleccione $r$ variables repetitivas (generalmente las variables independientes). Ejemplo si $r=n-m=3$ se debe escoger una variable geom\'etrica (e.g.$L$), una variable cinem\'atica (e.g. $V$) y una variable din\'amica (e.g. $\rho$). 
+        \item Si $r=3$, establecer para cada parametro $\Pi$ ecuaciones en teminos de $M^{\alpha}$ $L^{\beta}$ y $T^{\gamma}$. Adicione a cada grupo $\Pi$ una variable no repetitiva (dependiente) con exponente 1.
+        \item Obtener las ecuaciones resultantes de igualar los exponentes de las variables que conforman $\Pi$ a 0. Estas ecuaciones son para encontrar los valores de $\alpha$, $\beta$ y $\gamma$. Esto se hace para cada grupo $\Pi$.
+        \item Comprobar que el grupo $\Pi$ es adimensional.
+    \end{enumerate}
+\end{itemize}
+    \end{minipage}
+};
+%------------ Mixing Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {An\'alisis Dimensional};
+\end{tikzpicture}
+
+%------------ Mixing ---------------
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.475\textwidth}
+    \small
+%Por ejemplo un modelo a escala 1:15, significa que una unidad de $L$ en el modelo equivale a 15 unidades de $L$ en el prototipo. 
+\begin{itemize}
+    \item \textbf{Modelos hidr\'aulicos}: Un modelo hidr\'aulico es un modelo f\'isico reducido de un prototipo espec\'ifico (en la naturaleza) que se desea construir o estudiar. El modelo debe cumplir con tres leyes de similitud:
+    \begin{enumerate}
+        \item \textit{Similitud geom\'etrica}: Se obtiene cuando todas las dimensiones espaciales, incluyendo la rugosidad, tienen la misma relacion de escala lineal. Por ejemplo en un modelo a escala 1:15, una unidad de $L$ en el modelo equivale a 15 unidades de $L$ en el prototipo. La relaci\'on de longitud $L_r$ es:
+         \vspace{-0.2cm}
+        $$
+        \frac{L_m}{L_p} = L_r = C
+        $$
+        donde $L_m$ es una longitud en el modelo y $L_p$ es una longitud en el prototipo.
+        \item \textit{Similitud cinem\'atica}: Signif\'ica similitud de movimiento y se obtiene si las razones de cambio (que dependen del tiempo) entre part\'iculas del modelo y del propotipo  son iguales. La relaci\'on de tiempo $t_r$ es:
+         \vspace{-0.2cm}
+        $$
+        \frac{t_m^i - t_m^{i-1}}{t_p^i - t_p^{i-1}} = t_r = C
+        $$
+         \vspace{-0.2cm}
+        Si son geom\'etricamente simil\'ares, la relaci\'on de la velocidad $V_r$ es:
+         \vspace{-0.2cm}
+        $$
+        V_r = \frac{L_r}{t_r}
+        $$
+         
+        \item \textit{Similitud din\'amica}: Cuando la relaci\'on de fuerzas hom\'ologas entre el modelo y el prototipo es constante. La relaci\'on de fuerzas $F_r$ es $F_r = \frac{F_m}{F_p}$. Si un modelo sastisface la similitud din\'amica, tambi\'en satisface la similitud cinem\'atica.
+    \end{enumerate}
+    En problemas de rios y costas donde los contornos son moviles (e.g. el fondo y las orillas), es frecuente distorcionar una de las dimensiones espaciales, generalmente la dimensi\'on vertical, por lo que $L_{rv} = \frac{L_r}{n}$ donde $n$ es el factor de distorci\'on que se determina dependiendo de las posibilidades de instalaci\'on del modelo.
+    \item \textbf{Clasificaci\'on de los modelos f\'isicos}: Se clasifican dependiendo de la fuerza dominante en el prototipo:
+    \begin{enumerate}
+        \item \textit{Modelo de Reynolds}: Se denominan as\'i cuando las fuerzas viscosas son las dominantes en el flujo. La relaci\'on del $R_e$:
+         \vspace{-0.2cm}
+        $$
+        \frac{R_{em}}{R_{ep}}= R_{er} = \frac{\rho_r U_r L_r}{\mu_r} = 1
+        $$
+        de donde $U_r = \frac{\mu_r}{\rho_r L_r}$. Si el fluido en el modelo y en el prototipo son los mismos, $U_r = \frac{1}{L_r}$.
+        \item \textit{Modelo de Froude}: Se denominan as\'i cuando las fuerzas gobernantes son las gravitacionales. La relaci\'on del $F_{Rr}$ es:
+         \vspace{-0.2cm}
+        $$
+        \frac{F_{Rm}}{F_{Rp}}= F_{Rr} = \frac{U_r}{\sqrt{g_r L_r}} = 1
+        \vspace{-0.2cm}
+        $$
+        como $g_r = 1$, $U_r = \sqrt{L_r}$. 
+    \end{enumerate}
+    En algunos casos (e.g. flujo en canales, sistemas de bombeo) las fuerzas dominantes son las viscosas y las  gravitacionales. Sin embargo, no es posible que se cumplan ambas leyes ya que $L_r = 1$. Si de la ley de Froude tenemos que $U_r = \sqrt{L_r}$, reemplazando en la ley de Reynolds, tenemos:
+     \vspace{-0.2cm}
+    $$
+    R_{er} = \frac{\rho_r \sqrt{L_r}  L_r}{\mu_r} = \frac{L_r^{3/2}}{\nu_r} = 1
+    \vspace{-0.2cm}
+    $$
+    de donde $L_r^{3/2} = \frac{\nu_m}{\nu_p}$. Como $L_r < 1$, esto implica que $\nu_m < \nu_p$ lo cual es dif\'icil de lograr.
+\end{itemize}
+    \end{minipage}
+};
+%------------ Mixing Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {An\'alisis Dimensional};
+\end{tikzpicture}
+
+
+\end{multicols*}
+\end{document}
