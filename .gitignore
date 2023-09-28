@@ -3,7 +3,7 @@
 /exams/*
 /labs/guias_lab_hidraulica94-2.pdf
 /labs/calLab1.xlsx
-/hwks/hwk02/*
+ #/hwks/hwk02/*
 
 ## Core latex/pdflatex auxiliary files:
 *.aux

@@ -1,0 +1,225 @@
+\documentclass{article}
+\usepackage[landscape]{geometry}
+\usepackage{url}
+\usepackage{multicol}
+\usepackage{amsmath}
+\usepackage{esint}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathmorphing}
+\usepackage{amsmath,amssymb}
+
+\usepackage{colortbl}
+\usepackage{xcolor}
+\usepackage{mathtools}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\setlist[itemize]{align=parleft,left=0pt..1em}
+\makeatletter
+
+\newcommand*\bigcdot{\mathpalette\bigcdot@{.5}}
+\newcommand*\bigcdot@[2]{\mathbin{\vcenter{\hbox{\scalebox{#2}{$\m@th#1\bullet$}}}}}
+\makeatother
+
+\title{130 Cheat Sheet}
+%\usepackage[brazilian]{babel}
+\usepackage[utf8]{inputenc}
+
+\advance\topmargin-.8in
+\advance\textheight3in
+\advance\textwidth3in
+\advance\oddsidemargin-1.5in
+\advance\evensidemargin-1.5in
+\parindent0pt
+\parskip2pt
+\newcommand{\hr}{\centerline{\rule{3.5in}{1pt}}}
+%\colorbox[HTML]{e4e4e4}{\makebox[\textwidth-2\fboxsep][l]{texto}
+\begin{document}
+
+\begin{center}{\huge{\textbf{Resume No.2: Est\'atica de los Fluidos}}}\\
+\end{center}
+\begin{multicols*}{2}
+
+\tikzstyle{mybox} = [draw=black, fill=white, very thick,
+    rectangle, rounded corners, inner sep=10pt, inner ysep=10pt]
+\tikzstyle{fancytitle} =[fill=black, text=white, font=\bfseries]
+
+%------------ Heating ---------------
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.475\textwidth}
+En un fluido est\'atico las fuerzas actuantes sobre un elemento diferencial de fluido son las \emph{fuerzas de presi\'on} sobre las caras del elemento y el \emph{peso} del elemento de fluido. La presi\'on ($P$) es siempre perpendicular sobre la superficie actuante y tiene unidades en S.I de $1\ pascal = 1\ N m^{-2}$ y en sistema ingl\'es de $lb\ ft^{-2}$ o $1\ psi = 1 lb pulg^{-2}$. Tambien se puede expresar en \emph{bares} o \emph{atmo\'sferas}. La presi\'on de un sistema se puede medir con respecto al \emph{vacio} la cual se denomina \emph{presi\'on absoluta} ($P_{abs}$); note que $P=0$ en el vacio. Por lo tanto:
+$$
+P_{abs} = P_{atm} + \gamma h
+$$
+donde $h$ es la altura de la columna de fluido y $\gamma$ es el peso espec\'ifico del fluido. Usualmente $P_{atm}$ es conocida a nivel de mar. La presi\'on de un sistema tambi\'en se puede expresar como \emph{presi\'on relativa}, es decir, tomando como referencia un nivel especifico, e.g. el nivel del mar, por lo que $P_{atm}=0$, por lo tanto la presion relativa:
+$$
+P = \gamma h
+$$
+Note que en un fluido, $P$ aumenta con la profundidad. En la atm\'osfera, $P$ disminuye con la altitud (menor columna de aire). Por otro lado, \emph{presiones negativas} son aquellas menores que $P_{atm}$. \emph{En casos pr\'acticos en donde las alturas/profundidades son relativamente peque\~nas, la presi\'on del aire es la misma en todos los puntos en la vertical.}
+Generalidades acerca de la presi\'on:
+\begin{itemize}
+    \item La presi\'on ($P$) es \emph{isotr\'opica}, eso quiere decir que es la misma en cualquier direcci\'on, por eso es una cantidad \emph{escalar}.
+    \item La presi\'on es la misma en un plano horizontal que conecta dos fluidos.
+    \item La presi\'on es independiente de la forma del recipiente que contiene el l\'iquido. Es funci\'on de la profundidada/altura del fluido.
+\end{itemize}
+El \textbf{Principio de Pascal} establece que si se tienen dos c\'amaras con dos pistones (1 y 2) comunic\'adas a trav\'es del mismo l\'iquido (e.g. \emph{Gato Hidr\'aulico}), la presi\'on en un plano horizontal es igual, por lo tanto:
+$$
+P_1 = P_2 \Rightarrow\ \frac{F_1}{A_1} =\frac{F_2}{A_2} \Rightarrow\ F_2 = F_1\frac{A_2}{A_1}   
+$$
+donde $F$ es la fuerza sobre el piston y $A$ es el area transversal del piston. Si $A_1 > A_2$, la fuerza $F_1$ se multiplica en $\frac{A_1}{A_2}$, por lo que el gato hidr\'aulico act\'ua como un multiplicador de fuerzas.  
+    \end{minipage}
+};
+%------------ Heating Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {Ley fundamental de la est\'atica};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.475\textwidth}
+    Existen diferentes tipos de instrumentos para medir presi\'on en fluidos: 
+    \begin{itemize}
+        \item \emph{Bar\'ometro}: Sirve para medir $P_{atm}$. Consiste en un tubo de ensayo invertido y sin aire (vacio), el cual es sumergido en un contenedor con mercurio. Cuando el instrumento se expone al aire libre, el mercurio debe ascender por el tubo de ensayo una altura $h$, por lo que:
+        $$
+        P_{atm} = \gamma_{Hg} h
+        $$
+        donde $\gamma_{Hg}$ es el peso espec\'ifico del mercurio.
+        \item \emph{Man\'ometros}: Son dispositivos usados para  la medici\'on de presiones (o diferencia de presiones) con base en el desplazamiento de las columnas de fluidos. Los man\'ometros son dispositivos que se adaptan a depositos, tuber\'ias o canales con el proposito de medir presiones de fluidos en reposo o en movimiento. 
+    \end{itemize}
+    \textbf{Como resolver problemas de man\'ometros}\\
+    Es importante saber que:
+    \begin{itemize}
+        \item El cambio de presi\'on en una columna de fluido $h$ es: $\Delta P = \gamma h$.
+        \item La presi\'on en un fluido incrementa hacia abajo y disminuye hacia arriba ($P_{down}$ $>$ $P_{top}$).
+        \item Dos puntos conectados por un fluido continuo en reposo sobre el mismo plano horizontal tienen la misma presi\'on.
+    \end{itemize}
+    Para resolver problemas de man\'ometros:
+    \begin{enumerate}
+        \item Comenzar por uno de los extremos del man\'ometro y anotar la presi\'on $P$ (conocida o desconocida).
+        \item Recorrer el man\'ometro hasta el otro extremo de tal manera que se suma a $P$ el cambio de presi\'on ($\Delta P = \gamma h$) que se tenga de un menisco al siguiente: $+$ si el segundo menisco se encuentra a menor elevaci\'on; $-$ si est\'a a mayor elevaci\'on. En t\'erminos simples: se suma presi\'on ($\gamma h$) si bajo por el man\'ometro y resto presi\'on si subo por el man\'ometro.
+        \item Al llegar al otro extremo se iguala la suma y resta de presiones a la presi\'on en este punto. Luego se despeja la presion desconocida.   
+    \end{enumerate}
+    \end{minipage}
+};
+%------------ Heating Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {Disposit\'ivos para medir presi\'on};
+\end{tikzpicture}
+
+%------------ Mixing ---------------
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.475\textwidth}
+La \emph{fuerza} ($F$) sobre una superficie plana sumergida en posici\'on horizontal, vertical o inclinada (a un \'angulo $\theta$ con respecto a la superficie del agua), se calcula como:
+$$
+F = P_0 A + \gamma h_g A
+$$
+donde $h_g$ es la profundidad a la cual esta el \emph{centroide} ($g$) de la superficie sumergida, $P_0$ es una presi\'on inicial o conocida (e.g. $P_{atm}$) y $A$ es el area de la superficie. Si asumimos que $P_0 = 0$:
+$$
+F = \gamma h_g A
+$$
+El punto de aplicaci\'on de $F$ es el \emph{centro de presiones} ($p$). Las coordenadas de $p$ son:
+$$
+y_p = \frac{I_g}{y_g A} + y_g
+$$
+$$
+x_p = \frac{I_{xy}}{x_g A} + x_g
+$$
+donde $I_g$ es el momento de inercia de la superficie con respecto a $g$, $I_{xy}$ es el producto de inercia con respecto a $g$, $x_g$ es la coordenada $x$ de $g$ y $y_g$ es la coordenada $y$ de $g$; para una superficie inclinada a un \'angulo $\theta$ con respecto a la superficie del agua $y_g=\frac{h_g}{\sin \theta}$. Note que si la superficie est\'a inclinada a un \'angulo $\theta$ con respecto a la superficie del agua, $y_g = h_g/\sin \theta$. Si la superficie es sim\'etrica, $x_p = x_g$.
+$F$ puede adem\'as calcularse como el volumen (geom\'etrico) $V$ del prisma de presiones que act\'ua sobre la superficie:
+\vspace{-0.2cm}
+$$
+F = \gamma V
+$$
+
+El punto de aplicaci\'on de $F$ son las coordenadas $x$ y $y$ del centroide del prisma de presiones.  
+
+    \end{minipage}
+};
+%------------ Mixing Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {Fuerza sobre superficies planas sumergidas};
+\end{tikzpicture}
+
+%------------ Mixing ---------------
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.475\textwidth} 
+La fuerza $F$ ejercida por la acci\'on del fluido sobre una superficie curva cambia de direcci\'on y magnitud con la curvatura de la superficie. Por esto, la fuerza total se descompone en una fuerza horizontal $F_H$ y en una fuerza vertical $F_V$. $F_H$ actua sobre un plano vertical (proyecci\'on de la curva sobre un plano vertical), por lo tanto el c\'alculo de $F_H$ se hace para una superficie plana. El punto de aplicaci\'on de $F_H$ sigue la misma metodolog\'ia que para superficies planas. Note que la coordenada de inter\'es (si hay sim\'etria) es $y_p$ en el caso del punto de aplicaci\'on de $F_H$.
+Para calcular $F_V$ se determina el prisma de presiones que actua por encima y verticalmente sobre la superficie curva:
+\vspace{-0.2cm}
+$$
+F_V = \gamma V
+$$
+\vspace{-0.2cm}
+donde $V$ es el volumen (geom\'etrico) del prisma de presiones. El punto de aplicaci\'on de $F_V$ es:
+$$
+y_p = y_g = \frac{\int_V y dV}{\int_V dV} \approx \frac{\sum_{i=1}^n y_{c_i} V_i}{\sum_{i=1}^n V_i}
+$$
+$$
+x_p = x_g = \frac{\int_V x dV}{\int_V dV} \approx \frac{\sum_{i=1}^n x_{c_i} V_i}{\sum_{i=1}^n V_i}
+$$
+donde $n$ es el n\'umero de elementos geom\'etricos que componen el volumen. La resultante $F = \sqrt{F_{H}^2 + F_{V}^2}$. 
+    \end{minipage}
+};
+%------------ Mixing Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {Fuerza sobre superficies curvas sumergidas};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.475\textwidth} 
+    \small
+La fuerza de flotaci\'on ($F_B$) se obtine del balance de fuerzas de presi\'on que actuan sobre un objeto flotante o sumergido:
+$$
+F_B = \rho g V
+$$
+donde $\rho$ es la densidad del fluido y $V$ es el volumen de la porci\'on sumergida del objeto o del fluido desplazado por el objeto.
+De acuerdo con el \textbf{Principio de Arquimides}, la fuerza de flotaci\'on es equivalente al peso ($W$) del fluido desplazado (= peso del objeto) por el objeto:
+$$
+F_B = W \Rightarrow\ \rho g V = \rho_{ob} g V_{ob} \Rightarrow\ \frac{V}{V_{obj}} = \frac{\rho_{obj}}{\rho} 
+$$
+donde $\rho_{obj}$ es la densidad del objeto, $V_{obj}$ es el volumen del objeto. Note que el punto de aplicaci\'on de $W$ es el centroide $g$ del objeto. El punto de aplicaci\'on de $F_B$ es el centroide $b$ de la porci\'on sumergida del objeto.
+
+Un cuerpo sumergido es \emph{estable} si el punto $g$ est\'a por debajo del punto $b$ o si estos dos coinciden. El cuerpo sumergido es \emph{inestable} si $p$ est\'a por debajo de $g$. En el caso de un cuerpo flotante, dicho objeto es siempre estable y no depende de la posicion de $g$ y $p$ cuando estan en el mismo eje vertical. Si se aplica una fuerza desestabilizadora $F$ sobre el objecto, $b$ se desplaza horizontalmente hacia un nuevo punto $b'$, por lo tanto la estabilidad depender\'a de la posici\'on del metacentro $m$, el cual es el punto de intesecci\'on entre el eje vertical que pasa por $g$ y el eje vertical que pasa por $b'$. Si $m$ est\'a por encima de $g$, el objeto es \emph{estable}, si $m$ est\'a por debajo de $g$ el objeto es \emph{inestable}. La \emph{altura metacentrica} $\overline{mg}$ se c\'alcula como:
+$$
+\overline{mg} = \frac{I_g}{y_g A} + \overline{gb}
+$$
+donde $\overline{gb}$ es la distancia entre $g$ y $b$, $I_g$ es el momento de inercia de la secci\'on con respecto a $g$ y $y_g$ es la coordenada $y$ de $g$.
+El momento que se opone al generado por la fuerza desestabilizadora $F$ es el \emph{momento restaurador}:
+$$
+M = F_B s 
+$$
+donde $s$ es la distancia horizontal entre el eje vertical que pasa por $b'$ y el eje vertical que pasa por $g$. 
+
+    \end{minipage}
+};
+%------------ Mixing Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {Flotaci\'on y estabilidad};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.475\textwidth} 
+    \small
+Cuando un fluido se mueve como un cuerpo r\'igido con o sin aceleraci\'on y sin la presencia de esfuerzos cortantes, las presiones dentro del fluido se alteran. Se analizan dos casos:
+\begin{enumerate}
+    \item \textbf{Movimiento lineal de un fluido}: E.g. carrotanque que transporta un fluido en su interior y se mueve en un plano $xz$ ($x$ horizontal y $z$ vertical) con una aceleraci\'on $\vec{a} = a_x \Vec{i} + a_z \Vec{k}$. La presi\'on del fluido dentro del carrotanque se puede calcular como:
+    $$
+    dP = -\rho a_x dx -\rho (g + a_z )dz\ \Rightarrow\ P = P_0 - \rho a_x x -\rho (g + a_z )z
+    $$
+    donde $P_0$ es una presion conocida en un punto. Los planos de igual presi\'on $dP = 0$ son conocidos como \emph{isobaras}. 
+
+    \item \textbf{Movimiento rotacional}: E.g. Cilindro con un fluido que rota a una velocidad angular $\omega$ con respecto a un eje vertical $z$. La distancia horizontal esta dada por $r$ (radio). La presi\'on puede ser expresada como:
+    $$
+    dP = \rho r \omega^2 dr -\rho g dz\ \Rightarrow\ P = P_0 + \frac{\rho \omega^2 r^2}{2} -\rho g z
+    $$
+    
+\end{enumerate}
+    \end{minipage}
+};
+%------------ Mixing Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {Equilibrio relativo de fluidos en movimiento};
+\end{tikzpicture}
+
+
+\end{multicols*}
+\end{document}
